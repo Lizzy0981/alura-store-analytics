@@ -1,0 +1,226 @@
+{
+  "es": {
+    "title": "Alura Store Analytics",
+    "subtitle": "Quantum AI Business Intelligence Dashboard",
+    "quantum_status": "Sistema Cuántico Activo",
+    "achievements": {
+      "data_master": "Data Master",
+      "speed_analyzer": "Speed Analyzer", 
+      "ai_explorer": "AI Explorer"
+    },
+    "kpis": {
+      "total_revenue": "Ingresos Totales",
+      "active_stores": "Tiendas Activas",
+      "avg_ticket": "Ticket Promedio",
+      "top_category": "Categoría Top",
+      "ai_growth": "Crecimiento IA",
+      "quantum_score": "Score Cuántico"
+    },
+    "upload": {
+      "drag_drop": "Arrastra tu archivo CSV aquí",
+      "click_select": "O haz clic para seleccionar archivo",
+      "select_file": "Seleccionar Archivo",
+      "generate_sample": "Generar Datos de Ejemplo"
+    },
+    "charts": {
+      "revenue_by_store": "Ingresos por Tienda",
+      "category_distribution": "Distribución por Categoría",
+      "temporal_trend": "Tendencia Temporal",
+      "profitability_matrix": "Matriz de Rentabilidad"
+    },
+    "ai_insights": "Insights de Inteligencia Artificial",
+    "intelligent_ranking": "Ranking Inteligente de Tiendas"
+  },
+  "en": {
+    "title": "Alura Store Analytics",
+    "subtitle": "Quantum AI Business Intelligence Dashboard",
+    "quantum_status": "Quantum System Active",
+    "achievements": {
+      "data_master": "Data Master",
+      "speed_analyzer": "Speed Analyzer",
+      "ai_explorer": "AI Explorer"
+    },
+    "kpis": {
+      "total_revenue": "Total Revenue",
+      "active_stores": "Active Stores",
+      "avg_ticket": "Average Ticket",
+      "top_category": "Top Category",
+      "ai_growth": "AI Growth",
+      "quantum_score": "Quantum Score"
+    },
+    "upload": {
+      "drag_drop": "Drag your CSV file here",
+      "click_select": "Or click to select file",
+      "select_file": "Select File",
+      "generate_sample": "Generate Sample Data"
+    },
+    "charts": {
+      "revenue_by_store": "Revenue by Store",
+      "category_distribution": "Category Distribution",
+      "temporal_trend": "Temporal Trend",
+      "profitability_matrix": "Profitability Matrix"
+    },
+    "ai_insights": "Artificial Intelligence Insights",
+    "intelligent_ranking": "Intelligent Store Ranking"
+  },
+  "pt": {
+    "title": "Alura Store Analytics",
+    "subtitle": "Dashboard de Inteligência Artificial Quântica",
+    "quantum_status": "Sistema Quântico Ativo",
+    "achievements": {
+      "data_master": "Mestre dos Dados",
+      "speed_analyzer": "Analisador Rápido",
+      "ai_explorer": "Explorador IA"
+    },
+    "kpis": {
+      "total_revenue": "Receita Total",
+      "active_stores": "Lojas Ativas",
+      "avg_ticket": "Ticket Médio",
+      "top_category": "Categoria Top",
+      "ai_growth": "Crescimento IA",
+      "quantum_score": "Score Quântico"
+    },
+    "upload": {
+      "drag_drop": "Arraste seu arquivo CSV aqui",
+      "click_select": "Ou clique para selecionar arquivo",
+      "select_file": "Selecionar Arquivo",
+      "generate_sample": "Gerar Dados de Exemplo"
+    },
+    "charts": {
+      "revenue_by_store": "Receita por Loja",
+      "category_distribution": "Distribuição por Categoria",
+      "temporal_trend": "Tendência Temporal",
+      "profitability_matrix": "Matriz de Rentabilidade"
+    },
+    "ai_insights": "Insights de Inteligência Artificial",
+    "intelligent_ranking": "Ranking Inteligente de Lojas"
+  },
+  "fr": {
+    "title": "Alura Store Analytics",
+    "subtitle": "Tableau de Bord IA Quantique",
+    "quantum_status": "Système Quantique Actif",
+    "achievements": {
+      "data_master": "Maître des Données",
+      "speed_analyzer": "Analyseur Rapide",
+      "ai_explorer": "Explorateur IA"
+    },
+    "kpis": {
+      "total_revenue": "Revenus Totaux",
+      "active_stores": "Magasins Actifs",
+      "avg_ticket": "Ticket Moyen",
+      "top_category": "Catégorie Top",
+      "ai_growth": "Croissance IA",
+      "quantum_score": "Score Quantique"
+    },
+    "upload": {
+      "drag_drop": "Glissez votre fichier CSV ici",
+      "click_select": "Ou cliquez pour sélectionner",
+      "select_file": "Sélectionner Fichier",
+      "generate_sample": "Générer Données Exemple"
+    },
+    "charts": {
+      "revenue_by_store": "Revenus par Magasin",
+      "category_distribution": "Distribution par Catégorie",
+      "temporal_trend": "Tendance Temporelle",
+      "profitability_matrix": "Matrice de Rentabilité"
+    },
+    "ai_insights": "Insights d'Intelligence Artificielle",
+    "intelligent_ranking": "Classement Intelligent des Magasins"
+  },
+  "ar": {
+    "title": "تحليلات متجر ألورا",
+    "subtitle": "لوحة معلومات الذكاء الاصطناعي الكمي",
+    "quantum_status": "النظام الكمي نشط",
+    "achievements": {
+      "data_master": "سيد البيانات",
+      "speed_analyzer": "محلل السرعة",
+      "ai_explorer": "مستكشف الذكاء الاصطناعي"
+    },
+    "kpis": {
+      "total_revenue": "إجمالي الإيرادات",
+      "active_stores": "المتاجر النشطة",
+      "avg_ticket": "متوسط التذكرة",
+      "top_category": "الفئة الأولى",
+      "ai_growth": "نمو الذكاء الاصطناعي",
+      "quantum_score": "النتيجة الكمية"
+    },
+    "upload": {
+      "drag_drop": "اسحب ملف CSV هنا",
+      "click_select": "أو انقر لتحديد الملف",
+      "select_file": "تحديد ملف",
+      "generate_sample": "إنشاء بيانات تجريبية"
+    },
+    "charts": {
+      "revenue_by_store": "الإيرادات حسب المتجر",
+      "category_distribution": "التوزيع حسب الفئة",
+      "temporal_trend": "الاتجاه الزمني",
+      "profitability_matrix": "مصفوفة الربحية"
+    },
+    "ai_insights": "رؤى الذكاء الاصطناعي",
+    "intelligent_ranking": "ترتيب ذكي للمتاجر"
+  },
+  "he": {
+    "title": "אנליטיקס חנות אלורא",
+    "subtitle": "דשבורד בינה מלאכותית קוונטית",
+    "quantum_status": "מערכת קוונטית פעילה",
+    "achievements": {
+      "data_master": "מאסטר הנתונים",
+      "speed_analyzer": "מנתח מהירות",
+      "ai_explorer": "חוקר בינה מלאכותית"
+    },
+    "kpis": {
+      "total_revenue": "סך הכנסות",
+      "active_stores": "חנויות פעילות",
+      "avg_ticket": "כרטיס ממוצע",
+      "top_category": "קטגוריה מובילה",
+      "ai_growth": "צמיחת בינה מלאכותית",
+      "quantum_score": "ציון קוונטי"
+    },
+    "upload": {
+      "drag_drop": "גרור קובץ CSV כאן",
+      "click_select": "או לחץ לבחירת קובץ",
+      "select_file": "בחר קובץ",
+      "generate_sample": "צור נתוני דוגמה"
+    },
+    "charts": {
+      "revenue_by_store": "הכנסות לפי חנות",
+      "category_distribution": "התפלגות לפי קטגוריה",
+      "temporal_trend": "מגמה זמנית",
+      "profitability_matrix": "מטריצת רווחיות"
+    },
+    "ai_insights": "תובנות בינה מלאכותית",
+    "intelligent_ranking": "דירוג חכם של חנויות"
+  },
+  "zh": {
+    "title": "阿鲁拉商店分析",
+    "subtitle": "量子人工智能商业智能仪表板",
+    "quantum_status": "量子系统激活",
+    "achievements": {
+      "data_master": "数据大师",
+      "speed_analyzer": "速度分析师",
+      "ai_explorer": "人工智能探索者"
+    },
+    "kpis": {
+      "total_revenue": "总收入",
+      "active_stores": "活跃商店",
+      "avg_ticket": "平均票价",
+      "top_category": "顶级类别",
+      "ai_growth": "人工智能增长",
+      "quantum_score": "量子评分"
+    },
+    "upload": {
+      "drag_drop": "将CSV文件拖拽到这里",
+      "click_select": "或点击选择文件",
+      "select_file": "选择文件",
+      "generate_sample": "生成示例数据"
+    },
+    "charts": {
+      "revenue_by_store": "按商店收入",
+      "category_distribution": "按类别分布",
+      "temporal_trend": "时间趋势",
+      "profitability_matrix": "盈利能力矩阵"
+    },
+    "ai_insights": "人工智能洞察",
+    "intelligent_ranking": "智能商店排名"
+  }
+}
