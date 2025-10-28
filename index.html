@@ -21,6 +21,52 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
+    <!-- Selector de Idiomas (parte superior derecha) -->
+    <div class="language-selector">
+        <button class="language-btn" id="languageBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="m5 5 14 14"/>
+                <path d="m19 5-14 14"/>
+            </svg>
+            <span id="currentLang">ES</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6,9 12,15 18,9"/>
+            </svg>
+        </button>
+        <div class="language-dropdown" id="languageDropdown">
+            <div class="language-option" data-lang="es">
+                <span class="flag">🇪🇸</span>
+                <span>Español</span>
+            </div>
+            <div class="language-option" data-lang="en">
+                <span class="flag">🇺🇸</span>
+                <span>English</span>
+            </div>
+            <div class="language-option" data-lang="fr">
+                <span class="flag">🇫🇷</span>
+                <span>Français</span>
+            </div>
+            <div class="language-option" data-lang="pt">
+                <span class="flag">🇧🇷</span>
+                <span>Português</span>
+            </div>
+            <div class="language-option" data-lang="ar">
+                <span class="flag">🇸🇦</span>
+                <span>العربية</span>
+            </div>
+            <div class="language-option" data-lang="he">
+                <span class="flag">🇮🇱</span>
+                <span>עברית</span>
+            </div>
+            <div class="language-option" data-lang="zh">
+                <span class="flag">🇨🇳</span>
+                <span>中文</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Partículas Cuánticas de Fondo -->
     <div class="quantum-particles" id="quantumParticles"></div>
 
@@ -150,13 +196,13 @@
             </div>
             <div class="chart-card">
                 <h3>🎯 Matriz de Rentabilidad</h3>
-                <canvas id="scatterChart"></canvas>
+                <canvas id="profitabilityChart"></canvas>
             </div>
         </section>
 
         <!-- Centro de Reportes Ejecutivos -->
         <section class="reports-center">
-            <h3>📋 Centro de Reportes Ejecutivos</h3>
+            <h3>📊 Centro de Reportes Ejecutivos</h3>
             <div class="reports-grid">
                 <div class="report-card" data-report="executive">
                     <div class="report-icon">📊</div>
@@ -271,38 +317,38 @@
         </section>
     </div>
 
-    <!-- Footer con Iconos de Redes Sociales con Efecto de Salto -->
+    <!-- Footer CENTRADO con Iconos de Redes Sociales con Efecto de Salto -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-info">
-                <h3>Alura Store Analytics</h3>
-                <p>Transformando datos en decisiones inteligentes</p>
+            <div class="footer-center">
+                <h3 class="footer-title">Alura Store Analytics</h3>
+                <p class="footer-subtitle">Transformando datos en decisiones inteligentes</p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/Lizzy0981" target="_blank" class="social-icon" title="GitHub">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12 0 17.31 3.435 21.795 8.205 23.385 8.805 23.49 9.03 23.13 9.03 22.815 9.03 22.53 9.015 21.585 9.015 20.475 5.67 21.135 4.965 18.795 4.965 18.795 4.425 17.475 3.63 17.115 3.63 17.115 2.535 16.41 3.717 16.425 3.717 16.425 4.92 16.53 5.555 17.625 5.555 17.625 6.615 19.335 8.325 18.795 9.075 18.48 9.18 17.685 9.495 17.145 9.84 16.815 7.17 16.47 4.35 15.405 4.35 10.935 4.35 9.675 4.815 8.625 5.595 7.785 5.445 7.425 6.615 6.795 9.045 8.625 10.02 8.445 11.01 8.625 13.44 6.795 14.055 7.425 13.905 7.785 14.385 8.625 14.385 10.935 14.385 15.405 11.565 16.47 8.895 16.815 9.24 17.145 9.555 17.685 9.66 18.48 10.41 18.795 11.47 19.335 12.525 17.625 13.16 16.53 14.355 16.425 15.54 16.41 14.445 17.115 13.65 17.475 13.11 18.795 13.11 18.795 12.345 21.135 11.64 23.49 12.24 23.385 17.01 21.795 20.445 17.31 20.445 12 20.445 5.37 15.075 0 8.445 0Z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/eli-familia/" target="_blank" class="social-icon" title="LinkedIn">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/Lizzyfamilia" target="_blank" class="social-icon" title="Twitter">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:lizzyfamilia@gmail.com" class="social-icon" title="Email">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h1.832l8.532 6.545 8.532-6.545h1.832c.904 0 1.636.732 1.636 1.636z"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <p class="footer-copy">&copy; 2025 Elizabeth Díaz Familia • Desarrollado con 💜 y mucho ☕</p>
             </div>
-            <div class="social-links">
-                <a href="https://github.com/Lizzy0981" target="_blank" class="social-icon" title="GitHub">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12 0 17.31 3.435 21.795 8.205 23.385 8.805 23.49 9.03 23.13 9.03 22.815 9.03 22.53 9.015 21.585 9.015 20.475 5.67 21.135 4.965 18.795 4.965 18.795 4.425 17.475 3.63 17.115 3.63 17.115 2.535 16.41 3.717 16.425 3.717 16.425 4.92 16.53 5.555 17.625 5.555 17.625 6.615 19.335 8.325 18.795 9.075 18.48 9.18 17.685 9.495 17.145 9.84 16.815 7.17 16.47 4.35 15.405 4.35 10.935 4.35 9.675 4.815 8.625 5.595 7.785 5.445 7.425 6.615 6.795 9.045 8.625 10.02 8.445 11.01 8.625 13.44 6.795 14.055 7.425 13.905 7.785 14.385 8.625 14.385 10.935 14.385 15.405 11.565 16.47 8.895 16.815 9.24 17.145 9.555 17.685 9.66 18.48 10.41 18.795 11.47 19.335 12.525 17.625 13.16 16.53 14.355 16.425 15.54 16.41 14.445 17.115 13.65 17.475 13.11 18.795 13.11 18.795 12.345 21.135 11.64 23.49 12.24 23.385 17.01 21.795 20.445 17.31 20.445 12 20.445 5.37 15.075 0 8.445 0Z"/>
-                    </svg>
-                </a>
-                <a href="https://linkedin.com/in/eli-familia/" target="_blank" class="social-icon" title="LinkedIn">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                </a>
-                <a href="https://twitter.com/Lizzyfamilia" target="_blank" class="social-icon" title="Twitter">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                    </svg>
-                </a>
-                <a href="mailto:lizzyfamilia@gmail.com" class="social-icon" title="Email">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="currentColor" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h1.832l8.532 6.545 8.532-6.545h1.832c.904 0 1.636.732 1.636 1.636z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Elizabeth Díaz Familia - Desarrollado con 💜 y mucho ☕</p>
         </div>
     </footer>
 
