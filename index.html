@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alura Store Analytics - Quantum AI Business Intelligence</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a2e">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    
+    <!-- APIs Públicas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Partículas Cuánticas de Fondo -->
+    <div class="quantum-particles" id="quantumParticles"></div>
+
+    <!-- Container Principal -->
+    <div class="container">
+        <!-- Header Elegante con Selector de Idiomas -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-main">
+                    <h1 data-translate="title">Alura Store Analytics</h1>
+                    <p class="subtitle" data-translate="subtitle">Quantum AI Business Intelligence Dashboard</p>
+                    <div class="ai-status">
+                        <div class="quantum-indicator"></div>
+                        <span data-translate="quantum_status">Sistema Cuántico Activo</span>
+                    </div>
+                </div>
+                
+                <!-- Selector de Idiomas -->
+                <div class="language-selector">
+                    <button class="language-btn" id="languageBtn">
+                        <span class="flag" id="currentFlag">🇪🇸</span>
+                        <span class="lang-text" id="currentLang">ES</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <button class="language-option" data-lang="es">
+                            <span class="flag">🇪🇸</span>
+                            <span>Español</span>
+                        </button>
+                        <button class="language-option" data-lang="en">
+                            <span class="flag">🇺🇸</span>
+                            <span>English</span>
+                        </button>
+                        <button class="language-option" data-lang="pt">
+                            <span class="flag">🇧🇷</span>
+                            <span>Português</span>
+                        </button>
+                        <button class="language-option" data-lang="fr">
+                            <span class="flag">🇫🇷</span>
+                            <span>Français</span>
+                        </button>
+                        <button class="language-option" data-lang="ar">
+                            <span class="flag">🇸🇦</span>
+                            <span>العربية</span>
+                        </button>
+                        <button class="language-option" data-lang="he">
+                            <span class="flag">🇮🇱</span>
+                            <span>עברית</span>
+                        </button>
+                        <button class="language-option" data-lang="zh">
+                            <span class="flag">🇨🇳</span>
+                            <span>中文</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Panel de Gamificación -->
+        <section class="gamification-panel">
+            <div class="achievement-card">
+                <div class="achievement-icon">🎯</div>
+                <div class="achievement-title" data-translate="achievements.data_master">Data Master</div>
+                <div class="achievement-progress">
+                    <div class="progress-bar" style="width: 85%"></div>
+                </div>
+                <div class="achievement-xp">2,850 XP</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">⚡</div>
+                <div class="achievement-title" data-translate="achievements.speed_analyzer">Speed Analyzer</div>
+                <div class="achievement-progress">
+                    <div class="progress-bar" style="width: 92%"></div>
+                </div>
+                <div class="achievement-xp">3,420 XP</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">🧠</div>
+                <div class="achievement-title" data-translate="achievements.ai_explorer">AI Explorer</div>
+                <div class="achievement-progress">
+                    <div class="progress-bar" style="width: 78%"></div>
+                </div>
+                <div class="achievement-xp">2,150 XP</div>
+            </div>
+        </section>
+
+        <!-- KPIs Dashboard -->
+        <section class="kpis-container">
+            <div class="kpi-card">
+                <div class="kpi-icon">💰</div>
+                <div class="kpi-content">
+                    <h3 data-translate="kpis.total_revenue">Ingresos Totales</h3>
+                    <div class="kpi-value" id="totalRevenue">$0</div>
+                    <div class="kpi-trend positive">↗ +15.3%</div>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon">🏪</div>
+                <div class="kpi-content">
+                    <h3 data-translate="kpis.active_stores">Tiendas Activas</h3>
+                    <div class="kpi-value" id="activeStores">0</div>
+                    <div class="kpi-trend positive">↗ +3</div>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon">🎫</div>
+                <div class="kpi-content">
+                    <h3 data-translate="kpis.avg_ticket">Ticket Promedio</h3>
+                    <div class="kpi-value" id="avgTicket">$0</div>
+                    <div class="kpi-trend negative">↘ -2.1%</div>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon">⭐</div>
+                <div class="kpi-content">
+                    <h3 data-translate="kpis.top_category">Categoría Top</h3>
+                    <div class="kpi-value" id="topCategory">-</div>
+                    <div class="kpi-trend positive">↗ Líder</div>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon">📈</div>
+                <div class="kpi-content">
+                    <h3 data-translate="kpis.ai_growth">Crecimiento IA</h3>
+                    <div class="kpi-value" id="aiGrowth">+0%</div>
+                    <div class="kpi-trend ai">🤖 Cuántico</div>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon">⚛️</div>
+                <div class="kpi-content">
+                    <h3 data-translate="kpis.quantum_score">Score Cuántico</h3>
+                    <div class="kpi-value" id="quantumScore">0</div>
+                    <div class="kpi-trend quantum">⚡ Óptimo</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Área de Carga de Datos -->
+        <section class="data-upload-area">
+            <div class="upload-container" id="uploadContainer">
+                <div class="upload-icon">📊</div>
+                <h3 data-translate="upload.drag_drop">Arrastra tu archivo CSV aquí</h3>
+                <p data-translate="upload.click_select">O haz clic para seleccionar archivo</p>
+                <input type="file" id="csvFileInput" accept=".csv" style="display: none;">
+                <button class="upload-btn" onclick="document.getElementById('csvFileInput').click()" data-translate="upload.select_file">
+                    Seleccionar Archivo
+                </button>
+            </div>
+            <div class="generate-data-container">
+                <button class="generate-btn" id="generateDataBtn" data-translate="upload.generate_sample">
+                    ⚡ Generar Datos de Ejemplo
+                </button>
+            </div>
+        </section>
+
+        <!-- Gráficos -->
+        <section class="charts-container">
+            <div class="chart-card">
+                <h3 data-translate="charts.revenue_by_store">📊 Ingresos por Tienda</h3>
+                <canvas id="revenueChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3 data-translate="charts.category_distribution">🎯 Distribución por Categoría</h3>
+                <canvas id="categoryChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3 data-translate="charts.temporal_trend">📈 Tendencia Temporal</h3>
+                <canvas id="trendChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3 data-translate="charts.profitability_matrix">🔥 Matriz de Rentabilidad</h3>
+                <canvas id="profitabilityChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Centro de Reportes Ejecutivos -->
+        <section class="reports-center">
+            <h3 data-translate="reports_title">📋 Centro de Reportes Ejecutivos</h3>
+            <div class="reports-grid">
+                <div class="report-card">
+                    <div class="report-icon">📊</div>
+                    <h4 data-translate="reports.executive_title">Reporte Ejecutivo</h4>
+                    <p data-translate="reports.executive_desc">Dashboard completo con KPIs y métricas principales</p>
+                    <div class="report-actions">
+                        <button class="export-btn pdf" onclick="app.reportGenerator.generateExecutiveReport('pdf')" data-translate="reports.pdf_button">
+                            📄 PDF
+                        </button>
+                        <button class="export-btn excel" onclick="app.reportGenerator.generateExecutiveReport('excel')" data-translate="reports.excel_button">
+                            📊 Excel
+                        </button>
+                    </div>
+                </div>
+                <div class="report-card">
+                    <div class="report-icon">💰</div>
+                    <h4 data-translate="reports.financial_title">Reporte Financiero</h4>
+                    <p data-translate="reports.financial_desc">Análisis detallado de ingresos y rentabilidad</p>
+                    <div class="report-actions">
+                        <button class="export-btn pdf" onclick="app.reportGenerator.generateFinancialReport('pdf')" data-translate="reports.pdf_button">
+                            📄 PDF
+                        </button>
+                        <button class="export-btn excel" onclick="app.reportGenerator.generateFinancialReport('excel')" data-translate="reports.excel_button">
+                            📊 Excel
+                        </button>
+                    </div>
+                </div>
+                <div class="report-card">
+                    <div class="report-icon">🔮</div>
+                    <h4 data-translate="reports.predictive_title">Reporte Predictivo</h4>
+                    <p data-translate="reports.predictive_desc">Proyecciones y forecasting con IA avanzada</p>
+                    <div class="report-actions">
+                        <button class="export-btn pdf" onclick="app.reportGenerator.generatePredictiveReport('pdf')" data-translate="reports.pdf_button">
+                            📄 PDF
+                        </button>
+                        <button class="export-btn excel" onclick="app.reportGenerator.generatePredictiveReport('excel')" data-translate="reports.excel_button">
+                            📊 Excel
+                        </button>
+                    </div>
+                </div>
+                <div class="report-card">
+                    <div class="report-icon">📈</div>
+                    <h4 data-translate="reports.trends_title">Reporte de Tendencias</h4>
+                    <p data-translate="reports.trends_desc">Análisis temporal y patrones de crecimiento</p>
+                    <div class="report-actions">
+                        <button class="export-btn pdf" onclick="app.reportGenerator.generateTrendsReport('pdf')" data-translate="reports.pdf_button">
+                            📄 PDF
+                        </button>
+                        <button class="export-btn excel" onclick="app.reportGenerator.generateTrendsReport('excel')" data-translate="reports.excel_button">
+                            📊 Excel
+                        </button>
+                    </div>
+                </div>
+                <div class="report-card">
+                    <div class="report-icon">🎯</div>
+                    <h4 data-translate="reports.segmentation_title">Reporte de Segmentación</h4>
+                    <p data-translate="reports.segmentation_desc">Clustering y análisis de grupos por IA</p>
+                    <div class="report-actions">
+                        <button class="export-btn pdf" onclick="app.reportGenerator.generateSegmentationReport('pdf')" data-translate="reports.pdf_button">
+                            📄 PDF
+                        </button>
+                        <button class="export-btn excel" onclick="app.reportGenerator.generateSegmentationReport('excel')" data-translate="reports.excel_button">
+                            📊 Excel
+                        </button>
+                    </div>
+                </div>
+                <div class="report-card">
+                    <div class="report-icon">⚛️</div>
+                    <h4 data-translate="reports.quantum_title">Reporte Cuántico</h4>
+                    <p data-translate="reports.quantum_desc">Análisis con algoritmos cuánticos avanzados</p>
+                    <div class="report-actions">
+                        <button class="export-btn pdf" onclick="app.reportGenerator.generateQuantumReport('pdf')" data-translate="reports.pdf_button">
+                            📄 PDF
+                        </button>
+                        <button class="export-btn excel" onclick="app.reportGenerator.generateQuantumReport('excel')" data-translate="reports.excel_button">
+                            📊 Excel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Insights -->
+        <section class="ai-insights">
+            <h3 data-translate="ai_insights">🧠 Insights de Inteligencia Artificial</h3>
+            <div class="insights-container" id="aiInsightsContainer">
+                <!-- Los insights se generarán dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Tabla Inteligente -->
+        <section class="intelligent-table">
+            <h3 data-translate="intelligent_ranking">🏆 Ranking Inteligente de Tiendas</h3>
+            <div class="table-container">
+                <table id="storesTable">
+                    <thead>
+                        <tr>
+                            <th data-translate="table.ranking">RANKING</th>
+                            <th data-translate="table.store">TIENDA</th>
+                            <th data-translate="table.category">CATEGORÍA</th>
+                            <th data-translate="table.revenue">INGRESOS</th>
+                            <th data-translate="table.ai_score">SCORE IA</th>
+                            <th data-translate="table.quantum_score">SCORE CUÁNTICO</th>
+                            <th data-translate="table.status">ESTADO</th>
+                        </tr>
+                    </thead>
+                    <tbody id="storesTableBody">
+                        <!-- Los datos se cargarán dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer con Iconos de Redes Sociales Centrados -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3 data-translate="footer.title">Alura Store Analytics</h3>
+                <p data-translate="footer.description">Transformando datos en decisiones inteligentes</p>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/Lizzy0981" target="_blank" class="social-icon" title="GitHub">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12 0 17.31 3.435 21.795 8.205 23.385 8.805 23.49 9.03 23.13 9.03 22.815 9.03 22.53 9.015 21.585 9.015 20.475 5.67 21.135 4.965 18.795 4.965 18.795 4.425 17.475 3.63 17.115 3.63 17.115 2.535 16.41 3.717 16.425 3.717 16.425 4.92 16.53 5.555 17.625 5.555 17.625 6.615 19.335 8.325 18.795 9.075 18.48 9.18 17.685 9.495 17.145 9.84 16.815 7.17 16.47 4.35 15.405 4.35 10.935 4.35 9.675 4.815 8.625 5.595 7.785 5.445 7.425 6.615 6.795 9.045 8.625 10.02 8.445 11.01 8.625 13.44 6.795 14.055 7.425 13.905 7.785 14.385 8.625 14.385 10.935 14.385 15.405 11.565 16.47 8.895 16.815 9.24 17.145 9.555 17.685 9.66 18.48 10.41 18.795 11.47 19.335 12.525 17.625 13.16 16.53 14.355 16.425 15.54 16.41 14.445 17.115 13.65 17.475 13.11 18.795 13.11 18.795 12.345 21.135 11.64 23.49 12.24 23.385 17.01 21.795 20.445 17.31 20.445 12 20.445 5.37 15.075 0 8.445 0Z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/in/eli-familia/" target="_blank" class="social-icon" title="LinkedIn">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/Lizzyfamilia" target="_blank" class="social-icon" title="Twitter">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </a>
+                <a href="mailto:lizzyfamilia@gmail.com" class="social-icon" title="Email">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h1.832l8.532 6.545 8.532-6.545h1.832c.904 0 1.636.732 1.636 1.636z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-translate="footer.copyright">&copy; 2025 Elizabeth Díaz Familia - Desarrollado con 💜 y mucho ☕</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/quantum-engine.js"></script>
+    <script src="js/ml-algorithms.js"></script>
+    <script src="js/chart-manager.js"></script>
+    <script src="js/api-connector.js"></script>
+    <script src="js/report-generator.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
