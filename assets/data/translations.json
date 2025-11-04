@@ -1,0 +1,485 @@
+{
+  "es": {
+    "title": "Alura Store Analytics",
+    "subtitle": "Quantum AI Business Intelligence Dashboard",
+    "quantum_status": "Sistema Cuántico Activo",
+    "achievements": {
+      "data_master": "Data Master",
+      "speed_analyzer": "Speed Analyzer", 
+      "ai_explorer": "AI Explorer"
+    },
+    "kpis": {
+      "total_revenue": "Ingresos Totales",
+      "active_stores": "Tiendas Activas",
+      "avg_ticket": "Ticket Promedio",
+      "top_category": "Categoría Top",
+      "ai_growth": "Crecimiento IA",
+      "quantum_score": "Score Cuántico"
+    },
+    "upload": {
+      "drag_drop": "Arrastra tu archivo CSV aquí",
+      "click_select": "O haz clic para seleccionar archivo",
+      "select_file": "Seleccionar Archivo",
+      "generate_sample": "⚡ Generar Datos de Ejemplo"
+    },
+    "charts": {
+      "revenue_by_store": "📊 Ingresos por Tienda",
+      "category_distribution": "🎯 Distribución por Categoría",
+      "temporal_trend": "📈 Tendencia Temporal",
+      "profitability_matrix": "🔥 Matriz de Rentabilidad"
+    },
+    "reports_title": "📋 Centro de Reportes Ejecutivos",
+    "reports": {
+      "executive_title": "Reporte Ejecutivo",
+      "executive_desc": "Dashboard completo con KPIs y métricas principales",
+      "financial_title": "Reporte Financiero",
+      "financial_desc": "Análisis detallado de ingresos y rentabilidad",
+      "predictive_title": "Reporte Predictivo",
+      "predictive_desc": "Proyecciones y forecasting con IA avanzada",
+      "trends_title": "Reporte de Tendencias",
+      "trends_desc": "Análisis temporal y patrones de crecimiento",
+      "segmentation_title": "Reporte de Segmentación",
+      "segmentation_desc": "Clustering y análisis de grupos por IA",
+      "quantum_title": "Reporte Cuántico",
+      "quantum_desc": "Análisis con algoritmos cuánticos avanzados",
+      "pdf_button": "📄 PDF",
+      "excel_button": "📊 Excel"
+    },
+    "ai_insights": "🧠 Insights de Inteligencia Artificial",
+    "intelligent_ranking": "🏆 Ranking Inteligente de Tiendas",
+    "table": {
+      "ranking": "RANKING",
+      "store": "TIENDA",
+      "category": "CATEGORÍA",
+      "revenue": "INGRESOS",
+      "ai_score": "SCORE IA",
+      "quantum_score": "SCORE CUÁNTICO",
+      "status": "ESTADO"
+    },
+    "footer": {
+      "title": "Alura Store Analytics",
+      "description": "Transformando datos en decisiones inteligentes",
+      "copyright": "© 2025 Elizabeth Díaz Familia - Desarrollado con 💜 y mucho ☕"
+    },
+    "insights": [
+      "El sistema de IA está optimizado y listo para analizar datos",
+      "Motor cuántico con 256 qubits virtuales activo",
+      "Algoritmos de Machine Learning entrenados y calibrados",
+      "Visualizaciones interactivas preparadas para insights en tiempo real"
+    ]
+  },
+  "en": {
+    "title": "Alura Store Analytics",
+    "subtitle": "Quantum AI Business Intelligence Dashboard",
+    "quantum_status": "Quantum System Active",
+    "achievements": {
+      "data_master": "Data Master",
+      "speed_analyzer": "Speed Analyzer",
+      "ai_explorer": "AI Explorer"
+    },
+    "kpis": {
+      "total_revenue": "Total Revenue",
+      "active_stores": "Active Stores",
+      "avg_ticket": "Average Ticket",
+      "top_category": "Top Category",
+      "ai_growth": "AI Growth",
+      "quantum_score": "Quantum Score"
+    },
+    "upload": {
+      "drag_drop": "Drag your CSV file here",
+      "click_select": "Or click to select file",
+      "select_file": "Select File",
+      "generate_sample": "⚡ Generate Sample Data"
+    },
+    "charts": {
+      "revenue_by_store": "📊 Revenue by Store",
+      "category_distribution": "🎯 Category Distribution",
+      "temporal_trend": "📈 Temporal Trend",
+      "profitability_matrix": "🔥 Profitability Matrix"
+    },
+    "reports_title": "📋 Executive Reports Center",
+    "reports": {
+      "executive_title": "Executive Report",
+      "executive_desc": "Complete dashboard with KPIs and main metrics",
+      "financial_title": "Financial Report",
+      "financial_desc": "Detailed analysis of revenue and profitability",
+      "predictive_title": "Predictive Report",
+      "predictive_desc": "Projections and forecasting with advanced AI",
+      "trends_title": "Trends Report",
+      "trends_desc": "Temporal analysis and growth patterns",
+      "segmentation_title": "Segmentation Report",
+      "segmentation_desc": "Clustering and group analysis by AI",
+      "quantum_title": "Quantum Report",
+      "quantum_desc": "Analysis with advanced quantum algorithms",
+      "pdf_button": "📄 PDF",
+      "excel_button": "📊 Excel"
+    },
+    "ai_insights": "🧠 Artificial Intelligence Insights",
+    "intelligent_ranking": "🏆 Intelligent Store Ranking",
+    "table": {
+      "ranking": "RANKING",
+      "store": "STORE",
+      "category": "CATEGORY",
+      "revenue": "REVENUE",
+      "ai_score": "AI SCORE",
+      "quantum_score": "QUANTUM SCORE",
+      "status": "STATUS"
+    },
+    "footer": {
+      "title": "Alura Store Analytics",
+      "description": "Transforming data into intelligent decisions",
+      "copyright": "© 2025 Elizabeth Díaz Familia - Built with 💜 and lots of ☕"
+    },
+    "insights": [
+      "AI system is optimized and ready to analyze data",
+      "Quantum engine with 256 virtual qubits active",
+      "Machine Learning algorithms trained and calibrated",
+      "Interactive visualizations prepared for real-time insights"
+    ]
+  },
+  "pt": {
+    "title": "Alura Store Analytics",
+    "subtitle": "Dashboard de Inteligência Artificial Quântica",
+    "quantum_status": "Sistema Quântico Ativo",
+    "achievements": {
+      "data_master": "Mestre dos Dados",
+      "speed_analyzer": "Analisador Rápido",
+      "ai_explorer": "Explorador IA"
+    },
+    "kpis": {
+      "total_revenue": "Receita Total",
+      "active_stores": "Lojas Ativas",
+      "avg_ticket": "Ticket Médio",
+      "top_category": "Categoria Top",
+      "ai_growth": "Crescimento IA",
+      "quantum_score": "Score Quântico"
+    },
+    "upload": {
+      "drag_drop": "Arraste seu arquivo CSV aqui",
+      "click_select": "Ou clique para selecionar arquivo",
+      "select_file": "Selecionar Arquivo",
+      "generate_sample": "⚡ Gerar Dados de Exemplo"
+    },
+    "charts": {
+      "revenue_by_store": "📊 Receita por Loja",
+      "category_distribution": "🎯 Distribuição por Categoria",
+      "temporal_trend": "📈 Tendência Temporal",
+      "profitability_matrix": "🔥 Matriz de Rentabilidade"
+    },
+    "reports_title": "📋 Centro de Relatórios Executivos",
+    "reports": {
+      "executive_title": "Relatório Executivo",
+      "executive_desc": "Dashboard completo com KPIs e métricas principais",
+      "financial_title": "Relatório Financeiro",
+      "financial_desc": "Análise detalhada de receita e rentabilidade",
+      "predictive_title": "Relatório Preditivo",
+      "predictive_desc": "Projeções e previsões com IA avançada",
+      "trends_title": "Relatório de Tendências",
+      "trends_desc": "Análise temporal e padrões de crescimento",
+      "segmentation_title": "Relatório de Segmentação",
+      "segmentation_desc": "Clustering e análise de grupos por IA",
+      "quantum_title": "Relatório Quântico",
+      "quantum_desc": "Análise com algoritmos quânticos avançados",
+      "pdf_button": "📄 PDF",
+      "excel_button": "📊 Excel"
+    },
+    "ai_insights": "🧠 Insights de Inteligência Artificial",
+    "intelligent_ranking": "🏆 Ranking Inteligente de Lojas",
+    "table": {
+      "ranking": "RANKING",
+      "store": "LOJA",
+      "category": "CATEGORIA",
+      "revenue": "RECEITA",
+      "ai_score": "SCORE IA",
+      "quantum_score": "SCORE QUÂNTICO",
+      "status": "STATUS"
+    },
+    "footer": {
+      "title": "Alura Store Analytics",
+      "description": "Transformando dados em decisões inteligentes",
+      "copyright": "© 2025 Elizabeth Díaz Familia - Desenvolvido com 💜 e muito ☕"
+    },
+    "insights": [
+      "O sistema de IA está otimizado e pronto para analisar dados",
+      "Motor quântico com 256 qubits virtuais ativo",
+      "Algoritmos de Machine Learning treinados e calibrados",
+      "Visualizações interativas preparadas para insights em tempo real"
+    ]
+  },
+  "fr": {
+    "title": "Alura Store Analytics",
+    "subtitle": "Tableau de Bord IA Quantique",
+    "quantum_status": "Système Quantique Actif",
+    "achievements": {
+      "data_master": "Maître des Données",
+      "speed_analyzer": "Analyseur Rapide",
+      "ai_explorer": "Explorateur IA"
+    },
+    "kpis": {
+      "total_revenue": "Revenus Totaux",
+      "active_stores": "Magasins Actifs",
+      "avg_ticket": "Ticket Moyen",
+      "top_category": "Catégorie Top",
+      "ai_growth": "Croissance IA",
+      "quantum_score": "Score Quantique"
+    },
+    "upload": {
+      "drag_drop": "Glissez votre fichier CSV ici",
+      "click_select": "Ou cliquez pour sélectionner",
+      "select_file": "Sélectionner Fichier",
+      "generate_sample": "⚡ Générer Données Exemple"
+    },
+    "charts": {
+      "revenue_by_store": "📊 Revenus par Magasin",
+      "category_distribution": "🎯 Distribution par Catégorie",
+      "temporal_trend": "📈 Tendance Temporelle",
+      "profitability_matrix": "🔥 Matrice de Rentabilité"
+    },
+    "reports_title": "📋 Centre de Rapports Exécutifs",
+    "reports": {
+      "executive_title": "Rapport Exécutif",
+      "executive_desc": "Dashboard complet avec KPIs et métriques principales",
+      "financial_title": "Rapport Financier",
+      "financial_desc": "Analyse détaillée des revenus et de la rentabilité",
+      "predictive_title": "Rapport Prédictif",
+      "predictive_desc": "Projections et prévisions avec IA avancée",
+      "trends_title": "Rapport de Tendances",
+      "trends_desc": "Analyse temporelle et modèles de croissance",
+      "segmentation_title": "Rapport de Segmentation",
+      "segmentation_desc": "Clustering et analyse de groupes par IA",
+      "quantum_title": "Rapport Quantique",
+      "quantum_desc": "Analyse avec algorithmes quantiques avancés",
+      "pdf_button": "📄 PDF",
+      "excel_button": "📊 Excel"
+    },
+    "ai_insights": "🧠 Insights d'Intelligence Artificielle",
+    "intelligent_ranking": "🏆 Classement Intelligent des Magasins",
+    "table": {
+      "ranking": "CLASSEMENT",
+      "store": "MAGASIN",
+      "category": "CATÉGORIE",
+      "revenue": "REVENUS",
+      "ai_score": "SCORE IA",
+      "quantum_score": "SCORE QUANTIQUE",
+      "status": "STATUT"
+    },
+    "footer": {
+      "title": "Alura Store Analytics",
+      "description": "Transformer les données en décisions intelligentes",
+      "copyright": "© 2025 Elizabeth Díaz Familia - Développé avec 💜 et beaucoup de ☕"
+    },
+    "insights": [
+      "Le système d'IA est optimisé et prêt à analyser les données",
+      "Moteur quantique avec 256 qubits virtuels actif",
+      "Algorithmes de Machine Learning formés et calibrés",
+      "Visualisations interactives préparées pour des insights en temps réel"
+    ]
+  },
+  "ar": {
+    "title": "تحليلات متجر ألورا",
+    "subtitle": "لوحة معلومات الذكاء الاصطناعي الكمي",
+    "quantum_status": "النظام الكمي نشط",
+    "achievements": {
+      "data_master": "سيد البيانات",
+      "speed_analyzer": "محلل السرعة",
+      "ai_explorer": "مستكشف الذكاء الاصطناعي"
+    },
+    "kpis": {
+      "total_revenue": "إجمالي الإيرادات",
+      "active_stores": "المتاجر النشطة",
+      "avg_ticket": "متوسط التذكرة",
+      "top_category": "الفئة الأولى",
+      "ai_growth": "نمو الذكاء الاصطناعي",
+      "quantum_score": "النتيجة الكمية"
+    },
+    "upload": {
+      "drag_drop": "اسحب ملف CSV هنا",
+      "click_select": "أو انقر لتحديد الملف",
+      "select_file": "تحديد ملف",
+      "generate_sample": "⚡ إنشاء بيانات تجريبية"
+    },
+    "charts": {
+      "revenue_by_store": "📊 الإيرادات حسب المتجر",
+      "category_distribution": "🎯 التوزيع حسب الفئة",
+      "temporal_trend": "📈 الاتجاه الزمني",
+      "profitability_matrix": "🔥 مصفوفة الربحية"
+    },
+    "reports_title": "📋 مركز التقارير التنفيذية",
+    "reports": {
+      "executive_title": "تقرير تنفيذي",
+      "executive_desc": "لوحة معلومات كاملة مع المؤشرات والمقاييس الرئيسية",
+      "financial_title": "تقرير مالي",
+      "financial_desc": "تحليل مفصل للإيرادات والربحية",
+      "predictive_title": "تقرير تنبؤي",
+      "predictive_desc": "توقعات وتنبؤات مع ذكاء اصطناعي متقدم",
+      "trends_title": "تقرير الاتجاهات",
+      "trends_desc": "تحليل زمني وأنماط النمو",
+      "segmentation_title": "تقرير التجزئة",
+      "segmentation_desc": "التجميع وتحليل المجموعات بواسطة الذكاء الاصطناعي",
+      "quantum_title": "تقرير كمي",
+      "quantum_desc": "تحليل باستخدام خوارزميات كمية متقدمة",
+      "pdf_button": "📄 PDF",
+      "excel_button": "📊 Excel"
+    },
+    "ai_insights": "🧠 رؤى الذكاء الاصطناعي",
+    "intelligent_ranking": "🏆 ترتيب ذكي للمتاجر",
+    "table": {
+      "ranking": "الترتيب",
+      "store": "المتجر",
+      "category": "الفئة",
+      "revenue": "الإيرادات",
+      "ai_score": "نتيجة الذكاء الاصطناعي",
+      "quantum_score": "النتيجة الكمية",
+      "status": "الحالة"
+    },
+    "footer": {
+      "title": "تحليلات متجر ألورا",
+      "description": "تحويل البيانات إلى قرارات ذكية",
+      "copyright": "© 2025 إليزابيث دياز فاميليا - تم التطوير بـ 💜 والكثير من ☕"
+    },
+    "insights": [
+      "نظام الذكاء الاصطناعي محسّن وجاهز لتحليل البيانات",
+      "المحرك الكمي مع 256 كيوبت افتراضي نشط",
+      "خوارزميات التعلم الآلي مدربة ومعايرة",
+      "التصورات التفاعلية جاهزة للرؤى في الوقت الفعلي"
+    ]
+  },
+  "he": {
+    "title": "אנליטיקס חנות אלורא",
+    "subtitle": "דשבורד בינה מלאכותית קוונטית",
+    "quantum_status": "מערכת קוונטית פעילה",
+    "achievements": {
+      "data_master": "מאסטר הנתונים",
+      "speed_analyzer": "מנתח מהירות",
+      "ai_explorer": "חוקר בינה מלאכותית"
+    },
+    "kpis": {
+      "total_revenue": "סך הכנסות",
+      "active_stores": "חנויות פעילות",
+      "avg_ticket": "כרטיס ממוצע",
+      "top_category": "קטגוריה מובילה",
+      "ai_growth": "צמיחת בינה מלאכותית",
+      "quantum_score": "ציון קוונטי"
+    },
+    "upload": {
+      "drag_drop": "גרור קובץ CSV כאן",
+      "click_select": "או לחץ לבחירת קובץ",
+      "select_file": "בחר קובץ",
+      "generate_sample": "⚡ צור נתוני דוגמה"
+    },
+    "charts": {
+      "revenue_by_store": "📊 הכנסות לפי חנות",
+      "category_distribution": "🎯 התפלגות לפי קטגוריה",
+      "temporal_trend": "📈 מגמה זמנית",
+      "profitability_matrix": "🔥 מטריצת רווחיות"
+    },
+    "reports_title": "📋 מרכז דוחות מנהלים",
+    "reports": {
+      "executive_title": "דוח מנהלים",
+      "executive_desc": "דשבורד מלא עם KPIs ומדדים עיקריים",
+      "financial_title": "דוח פיננסי",
+      "financial_desc": "ניתוח מפורט של הכנסות ורווחיות",
+      "predictive_title": "דוח חיזוי",
+      "predictive_desc": "תחזיות וניבוי עם בינה מלאכותית מתקדמת",
+      "trends_title": "דוח מגמות",
+      "trends_desc": "ניתוח זמני ותבניות צמיחה",
+      "segmentation_title": "דוח פילוח",
+      "segmentation_desc": "אשכול וניתוח קבוצות על ידי בינה מלאכותית",
+      "quantum_title": "דוח קוונטי",
+      "quantum_desc": "ניתוח עם אלגוריתמים קוונטיים מתקדמים",
+      "pdf_button": "📄 PDF",
+      "excel_button": "📊 Excel"
+    },
+    "ai_insights": "🧠 תובנות בינה מלאכותית",
+    "intelligent_ranking": "🏆 דירוג חכם של חנויות",
+    "table": {
+      "ranking": "דירוג",
+      "store": "חנות",
+      "category": "קטגוריה",
+      "revenue": "הכנסות",
+      "ai_score": "ציון בינה מלאכותית",
+      "quantum_score": "ציון קוונטי",
+      "status": "סטטוס"
+    },
+    "footer": {
+      "title": "אנליטיקס חנות אלורא",
+      "description": "הפיכת נתונים להחלטות חכמות",
+      "copyright": "© 2025 אליזבת דיאז פמיליה - נבנה עם 💜 והרבה ☕"
+    },
+    "insights": [
+      "מערכת הבינה המלאכותית מיטבה ומוכנה לניתוח נתונים",
+      "מנוע קוונטי עם 256 קיוביטים וירטואליים פעיל",
+      "אלגוריתמי למידת מכונה מאומנים ומכוילים",
+      "ויזואליזציות אינטראקטיביות מוכנות לתובנות בזמן אמת"
+    ]
+  },
+  "zh": {
+    "title": "阿鲁拉商店分析",
+    "subtitle": "量子人工智能商业智能仪表板",
+    "quantum_status": "量子系统激活",
+    "achievements": {
+      "data_master": "数据大师",
+      "speed_analyzer": "速度分析师",
+      "ai_explorer": "人工智能探索者"
+    },
+    "kpis": {
+      "total_revenue": "总收入",
+      "active_stores": "活跃商店",
+      "avg_ticket": "平均票价",
+      "top_category": "顶级类别",
+      "ai_growth": "人工智能增长",
+      "quantum_score": "量子评分"
+    },
+    "upload": {
+      "drag_drop": "将CSV文件拖拽到这里",
+      "click_select": "或点击选择文件",
+      "select_file": "选择文件",
+      "generate_sample": "⚡ 生成示例数据"
+    },
+    "charts": {
+      "revenue_by_store": "📊 按商店收入",
+      "category_distribution": "🎯 按类别分布",
+      "temporal_trend": "📈 时间趋势",
+      "profitability_matrix": "🔥 盈利能力矩阵"
+    },
+    "reports_title": "📋 执行报告中心",
+    "reports": {
+      "executive_title": "执行报告",
+      "executive_desc": "完整的仪表板，包含关键绩效指标和主要指标",
+      "financial_title": "财务报告",
+      "financial_desc": "收入和盈利能力的详细分析",
+      "predictive_title": "预测报告",
+      "predictive_desc": "使用先进人工智能进行预测和预报",
+      "trends_title": "趋势报告",
+      "trends_desc": "时间分析和增长模式",
+      "segmentation_title": "分段报告",
+      "segmentation_desc": "人工智能聚类和群组分析",
+      "quantum_title": "量子报告",
+      "quantum_desc": "使用先进量子算法进行分析",
+      "pdf_button": "📄 PDF",
+      "excel_button": "📊 Excel"
+    },
+    "ai_insights": "🧠 人工智能洞察",
+    "intelligent_ranking": "🏆 智能商店排名",
+    "table": {
+      "ranking": "排名",
+      "store": "商店",
+      "category": "类别",
+      "revenue": "收入",
+      "ai_score": "人工智能评分",
+      "quantum_score": "量子评分",
+      "status": "状态"
+    },
+    "footer": {
+      "title": "阿鲁拉商店分析",
+      "description": "将数据转化为智能决策",
+      "copyright": "© 2025 伊丽莎白·迪亚兹·法米利亚 - 用 💜 和大量 ☕ 制作"
+    },
+    "insights": [
+      "人工智能系统已优化并准备好分析数据",
+      "量子引擎拥有256个虚拟量子比特处于激活状态",
+      "机器学习算法已训练和校准",
+      "交互式可视化准备实时洞察"
+    ]
+  }
+}

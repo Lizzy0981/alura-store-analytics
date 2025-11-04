@@ -1,0 +1,118 @@
+{
+  "name": "Alura Store Analytics - Quantum AI Business Intelligence",
+  "short_name": "Alura Analytics",
+  "description": "Dashboard profesional de Business Intelligence con IA avanzada, algoritmos cuánticos y visualización interactiva en tiempo real",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#1a1a2e",
+  "background_color": "#0F172A",
+  "lang": "es",
+  "dir": "ltr",
+  "categories": ["business", "analytics", "productivity", "finance"],
+  "icons": [
+    {
+      "src": "assets/images/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/icon-512.png",
+      "type": "image/png", 
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard Principal",
+      "short_name": "Dashboard",
+      "description": "Acceso directo al dashboard principal con KPIs",
+      "url": "/#dashboard",
+      "icons": [
+        {
+          "src": "assets/images/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Análisis IA",
+      "short_name": "IA",
+      "description": "Insights y recomendaciones de inteligencia artificial",
+      "url": "/#ai-insights",
+      "icons": [
+        {
+          "src": "assets/images/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Motor Cuántico",
+      "short_name": "Quantum",
+      "description": "Acceso al laboratorio de computación cuántica",
+      "url": "/#quantum-lab",
+      "icons": [
+        {
+          "src": "assets/images/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/images/screenshot-desktop.png",
+      "type": "image/png",
+      "sizes": "1280x720",
+      "form_factor": "wide",
+      "label": "Dashboard principal en desktop con KPIs y gráficos interactivos"
+    },
+    {
+      "src": "assets/images/screenshot-mobile.png", 
+      "type": "image/png",
+      "sizes": "375x667",
+      "form_factor": "narrow",
+      "label": "Vista móvil optimizada del dashboard analytics"
+    }
+  ],
+  "prefer_related_applications": false,
+  "share_target": {
+    "action": "/share-data",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "csv_data",
+          "accept": [".csv", "text/csv"]
+        }
+      ]
+    }
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+aluraanalytics",
+      "url": "/?import=%s"
+    }
+  ],
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  }
+}
