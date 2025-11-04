@@ -1,0 +1,165 @@
+# ========================================
+# ALURA STORE ANALYTICS - GITIGNORE
+# ========================================
+
+# Archivos del sistema operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor y IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-*
+
+# Logs y archivos temporales
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Dependencias de Node.js (si se usan)
+node_modules/
+jspm_packages/
+web_modules/
+
+# Archivos de configuración local
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Cache y archivos temporales
+.cache/
+.parcel-cache/
+.next/
+out/
+build/
+dist/
+
+# Coverage y testing
+coverage/
+*.lcov
+.nyc_output
+
+# Archivos de backup
+*.bak
+*.backup
+*.old
+*.orig
+
+# Archivos CSV cargados por usuarios (proteger privacidad)
+uploads/*.csv
+user-data/*.csv
+data/private/
+temp-uploads/
+
+# Certificados y claves (seguridad)
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Archivos de configuración de PWA generados
+sw-generated.js
+precache-manifest.*.js
+
+# Archivos de analíticas y métricas privadas
+analytics-data/
+metrics-private/
+user-analytics/
+
+# Configuraciones específicas del servidor
+.htaccess
+web.config
+netlify.toml
+
+# Archivos de desarrollo y testing
+test-data/
+mock-data/
+dev-tools/
+debugging/
+
+# Archivos de documentación temporal
+docs/drafts/
+docs/temp/
+*.draft.md
+
+# Base de datos locales
+*.db
+*.sqlite
+*.sqlite3
+
+# Archivos de configuración de CI/CD
+.github/workflows/private/
+.gitlab-ci-private.yml
+
+# Configuraciones de deployment
+deployment-config.json
+private-config.json
+
+# Archivos específicos de Alura Analytics
+quantum-state-cache/
+ml-model-cache/
+chart-cache/
+
+# ========================================
+# MANTENER ESTOS ARCHIVOS IMPORTANTES
+# ========================================
+
+# NO ignorar archivos esenciales del proyecto
+!index.html
+!manifest.json
+!sw.js
+!css/
+!js/
+!assets/
+!README.md
+!LICENSE
+
+# Mantener datos de ejemplo públicos
+!assets/data/sample-quantum.csv
+!assets/data/translations.json
+
+# Mantener íconos y recursos públicos
+!assets/images/favicon.svg
+!assets/images/icon-*.png
+
+# ========================================
+# CONFIGURACIONES ESPECIALES
+# ========================================
+
+# Permitir archivos de configuración necesarios
+!.gitignore
+!package.json
+!package-lock.json
+
+# Archivos de GitHub Pages
+!_config.yml
+!CNAME
+
+# Configuraciones de PWA
+!browserconfig.xml
+!site.webmanifest
