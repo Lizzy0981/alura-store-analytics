@@ -143,32 +143,23 @@ class LanguageManager {
 
 window.langManager = new LanguageManager();
 
-                ${this.flags[this.current]} ${this.names[this.current]} ▼
             </button>
-            <div class="lang-dropdown" id="lang-dropdown">
                 ${this.supported.map(l => `
                     <div class="lang-option ${l===this.current?'active':''}"
                          data-lang="${l}"
-                         onclick="window.langManager.apply('${l}')">
-                        ${this.flags[l]} ${this.names[l]}
                     </div>
                 `).join('')}
             </div>`;
     }
 
-    toggleDropdown() {
-        const dd = document.getElementById('lang-dropdown');
         if (dd) dd.classList.toggle('open');
     }
 
-    get(key) {
         return (this.t[this.current] || {})[key] || key;
     }
 }
 
 // ── Inicialización global ──────────────────────────────────────
-window.langManager = new LanguageManager();
-document.addEventListener('DOMContentLoaded', () => window.langManager.init());
 
 // ── Cerrar dropdown al hacer clic fuera ───────────────────────
 document.addEventListener('click', e => {
@@ -198,7 +189,7 @@ class AluraStoreAnalytics {
         this.chartManager = new ChartManager();
         this.apiConnector = new APIConnector();
         this.reportGenerator = new ReportGenerator();
-        this.languageManager = new LanguageManager();
+        // languageManager disponible en window.langManager;
         
         this.init();
     }
@@ -487,7 +478,7 @@ class AluraStoreAnalytics {
 
     generateAIInsights() {
         const icons = ['🎯', '⚡', '🧠', '📊'];
-        const insightsTexts = (this.languageManager.translations[this.languageManager.currentLang] || {}).insights || [] || [
+        const insightsTexts = (window.langManager?.translations?.[window.langManager?.currentLang]?.insights) || [
             'El sistema de IA está optimizado y listo para analizar datos',
             'Motor cuántico con 256 qubits virtuales activo',
             'Algoritmos de Machine Learning entrenados y calibrados',
