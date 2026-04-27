@@ -143,7 +143,6 @@ class LanguageManager {
 
 window.langManager = new LanguageManager();
 
-                    <div class="lang-option ${l===this.current?'active':''}"
 // ── Cerrar dropdown al hacer clic fuera ───────────────────────
 document.addEventListener('click', e => {
     if (!e.target.closest('#lang-selector')) {
