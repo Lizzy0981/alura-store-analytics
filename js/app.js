@@ -143,24 +143,7 @@ class LanguageManager {
 
 window.langManager = new LanguageManager();
 
-            </button>
-                ${this.supported.map(l => `
                     <div class="lang-option ${l===this.current?'active':''}"
-                         data-lang="${l}"
-                    </div>
-                `).join('')}
-            </div>`;
-    }
-
-        if (dd) dd.classList.toggle('open');
-    }
-
-        return (this.t[this.current] || {})[key] || key;
-    }
-}
-
-// ── Inicialización global ──────────────────────────────────────
-
 // ── Cerrar dropdown al hacer clic fuera ───────────────────────
 document.addEventListener('click', e => {
     if (!e.target.closest('#lang-selector')) {
