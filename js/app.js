@@ -37,7 +37,7 @@ class LanguageManager {
     }
 
     renderSelector() {
-        const container = document.getElementById('lang-selector');
+        const container = document.getElementById('lang-selector-header');
         if (!container) return;
 
         const currentLangObj = this.languages.find(l => l.code === this.currentLang) || this.languages[0];
@@ -587,4 +587,24 @@ if ('serviceWorker' in navigator) {
                 console.log('SW falló:', registrationError);
             });
     });
+}
+
+
+function loadDemoFile(filename) {
+  const url = 'Datos Alura Store/' + filename;
+  fetch(url).then(r => r.text()).then(txt => {
+    const blob = new Blob([txt], {type:'text/csv'});
+    const file = new File([blob], filename, {type:'text/csv'});
+    const dt = new DataTransfer();
+    dt.items.add(file);
+    const fi = document.getElementById('csvFileInput');
+    if(fi) fi.files = dt.files;
+    if(window.app && window.app.processData) window.app.processData(file);
+    const sec = document.getElementById('uploadContainer');
+    if(sec) sec.scrollIntoView({behavior:'smooth'});
+    console.log('Demo cargado:', filename);
+  }).catch(e => {
+    console.warn('Demo file not available remotely, showing placeholder data');
+    if(window.app && window.app.generateDemoData) window.app.generateDemoData(filename);
+  });
 }
