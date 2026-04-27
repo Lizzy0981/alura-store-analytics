@@ -4,155 +4,145 @@
 // ═══════════════════════════════════════════════════════════════
 class LanguageManager {
     constructor() {
-        this.current = localStorage.getItem('alura_lang') ||
-                       navigator.language.slice(0,2) || 'es';
-        this.supported = ['es','en','pt','fr','ru','tr','ar','he','zh','ja','ko'];
-        this.rtl       = ['ar','he'];
-        this.flags     = {
-            es:'🇪🇸', en:'🇺🇸', pt:'🇧🇷', fr:'🇫🇷',
-            ru:'🇷🇺', tr:'🇹🇷', ar:'🇸🇦', he:'🇮🇱',
-            zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷'
-        };
-        this.names = {
-            es:'Español', en:'English', pt:'Português', fr:'Français',
-            ru:'Русский', tr:'Türkçe', ar:'العربية', he:'עברית',
-            zh:'中文', ja:'日本語', ko:'한국어'
-        };
-        if (!this.supported.includes(this.current)) this.current = 'es';
-        this.t = {};
+        this.currentLang = localStorage.getItem('alura-lang') || 'es';
+        this.translations = {};
+        this.languages = [
+            { code: 'es', flag: '🇪🇸', name: 'Español',  rtl: false },
+            { code: 'en', flag: '🇺🇸', name: 'English',  rtl: false },
+            { code: 'pt', flag: '🇧🇷', name: 'Português', rtl: false },
+            { code: 'fr', flag: '🇫🇷', name: 'Français', rtl: false },
+            { code: 'ru', flag: '🇷🇺', name: 'Русский',  rtl: false },
+            { code: 'tr', flag: '🇹🇷', name: 'Türkçe',   rtl: false },
+            { code: 'ar', flag: '🇸🇦', name: 'العربية',  rtl: true  },
+            { code: 'he', flag: '🇮🇱', name: 'עברית',    rtl: true  },
+            { code: 'zh', flag: '🇨🇳', name: '中文',      rtl: false },
+            { code: 'ja', flag: '🇯🇵', name: '日本語',    rtl: false },
+            { code: 'ko', flag: '🇰🇷', name: '한국어',    rtl: false }
+        ];
+        this.rtl = ['ar', 'he'];
     }
 
     async init() {
         try {
-            const r = await fetch('assets/data/translations.json');
-            const all = await r.json();
-            this.t = all;
-            this.renderSelector();
-            this.apply(this.current);
+            const response = await fetch('assets/data/translations.json');
+            this.translations = await response.json();
+            console.log('✅ Translations loaded:', Object.keys(this.translations).length, 'languages');
         } catch(e) {
             console.warn('Translations not loaded:', e);
+            this.translations = {};
         }
-    }
-
-    apply(lang) {
-        if (!this.t[lang]) return;
-        this.current = lang;
-        localStorage.setItem('alura_lang', lang);
-
-        // ── Dirección RTL/LTR ──────────────────────────────────
-        const isRTL = this.rtl.includes(lang);
-        document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
-        document.documentElement.setAttribute('lang', lang);
-        document.body.style.direction = isRTL ? 'rtl' : 'ltr';
-
-        const T = this.t[lang];
-
-        // ── Traducir todos los elementos con data-i18n ─────────
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (T[key] !== undefined) el.textContent = T[key];
-        });
-
-        // ── Traducir placeholders ──────────────────────────────
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-            const key = el.getAttribute('data-i18n-placeholder');
-            if (T[key] !== undefined) el.setAttribute('placeholder', T[key]);
-        });
-
-        // ── Traducir títulos (title attribute) ─────────────────
-        document.querySelectorAll('[data-i18n-title]').forEach(el => {
-            const key = el.getAttribute('data-i18n-title');
-            if (T[key] !== undefined) el.setAttribute('title', T[key]);
-        });
-
-        // ── Elementos específicos por ID ───────────────────────
-        const map = {
-            'app-title':           T.app_title,
-            'app-subtitle':        T.app_subtitle,
-            'system-active-text':  T.system_active,
-            'kpi-total-revenue':   T.total_revenue,
-            'kpi-active-stores':   T.active_stores,
-            'kpi-avg-ticket':      T.avg_ticket,
-            'kpi-top-category':    T.top_category,
-            'kpi-ai-growth':       T.ai_growth,
-            'kpi-quantum-score':   T.quantum_score,
-            'upload-title':        T.upload_title,
-            'upload-subtitle':     T.upload_subtitle,
-            'btn-select-file':     T.select_file,
-            'btn-generate-sample': T.generate_sample,
-            'btn-process-data':    T.process_data,
-            'btn-clear-data':      T.clear_data,
-            'chart-title-revenue': T.chart_revenue,
-            'chart-title-cat':     T.chart_category,
-            'chart-title-trend':   T.chart_trend,
-            'chart-title-matrix':  T.chart_matrix,
-            'reports-title':       T.reports_title,
-            'ai-insights-title':   T.ai_insights,
-            'store-ranking-title': T.store_ranking,
-            'footer-tagline':      T.footer_text,
-            'footer-copyright':    T.footer_copy,
-            'badge-data-master':   T.data_master,
-            'badge-speed':         T.speed_analyzer,
-            'badge-ai-explorer':   T.ai_explorer,
-        };
-        Object.entries(map).forEach(([id, val]) => {
-            const el = document.getElementById(id);
-            if (el && val) el.textContent = val;
-        });
-
-        // ── Tabla ranking ──────────────────────────────────────
-        const thMap = {
-            'th-rank':    T.col_rank,
-            'th-store':   T.col_store,
-            'th-cat':     T.col_category,
-            'th-revenue': T.col_revenue,
-            'th-ai':      T.col_ai_score,
-            'th-quantum': T.col_quantum,
-            'th-status':  T.col_status,
-        };
-        Object.entries(thMap).forEach(([id, val]) => {
-            const el = document.getElementById(id);
-            if (el && val) el.textContent = val;
-        });
-
-        // ── Reportes ───────────────────────────────────────────
-        const reports = [
-            ['report-executive', T.report_executive, T.report_executive_desc],
-            ['report-financial',  T.report_financial,  T.report_financial_desc],
-            ['report-predictive', T.report_predictive, T.report_predictive_desc],
-            ['report-trends',     T.report_trends,     T.report_trends_desc],
-            ['report-segment',    T.report_segmentation, T.report_segmentation_desc],
-            ['report-quantum',    T.report_quantum,    T.report_quantum_desc],
-        ];
-        reports.forEach(([id, title, desc]) => {
-            const titleEl = document.getElementById(id + '-title');
-            const descEl  = document.getElementById(id + '-desc');
-            if (titleEl && title) titleEl.textContent = title;
-            if (descEl  && desc)  descEl.textContent  = desc;
-        });
-
-        // ── Botones PDF/Excel en reportes ──────────────────────
-        document.querySelectorAll('.btn-pdf').forEach(el  => el.textContent = T.btn_pdf);
-        document.querySelectorAll('.btn-excel').forEach(el => el.textContent = T.btn_excel);
-
-        // ── Actualizar selector visual ─────────────────────────
-        const current = document.getElementById('current-lang');
-        if (current) {
-            current.textContent = `${this.flags[lang]} ${this.names[lang]}`;
-        }
-        document.querySelectorAll('.lang-option').forEach(el => {
-            el.classList.toggle('active', el.dataset.lang === lang);
-        });
-
-        // ── Disparar evento para otros módulos ─────────────────
-        window.dispatchEvent(new CustomEvent('languageChanged', {detail: {lang, T}}));
+        this.renderSelector();
+        this.apply(this.currentLang);
+        console.log('✅ LanguageManager initialized successfully');
     }
 
     renderSelector() {
         const container = document.getElementById('lang-selector');
         if (!container) return;
+
+        const currentLangObj = this.languages.find(l => l.code === this.currentLang) || this.languages[0];
+
         container.innerHTML = `
-            <button class="lang-btn" id="current-lang" onclick="window.langManager.toggleDropdown()">
+            <div class="language-selector" id="languageSelector">
+                <button class="lang-btn" id="languageBtn">
+                    <span class="flag" id="currentFlag">${currentLangObj.flag}</span>
+                    <span class="lang-text" id="currentLang">${currentLangObj.code.toUpperCase()}</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    ${this.languages.map(l => `
+                    <div class="lang-option${l.code === this.currentLang ? ' active' : ''}" data-lang="${l.code}">
+                        <span class="flag">${l.flag}</span>
+                        <span>${l.name}</span>
+                    </div>`).join('')}
+                </div>
+            </div>`;
+
+        // Toggle dropdown
+        const btn = container.querySelector('#languageBtn');
+        const dropdown = container.querySelector('#langDropdown');
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+            btn.querySelector('.arrow').textContent = dropdown.classList.contains('active') ? '▲' : '▼';
+        });
+        document.addEventListener('click', () => {
+            dropdown.classList.remove('active');
+            btn.querySelector('.arrow').textContent = '▼';
+        });
+
+        // Opciones
+        container.querySelectorAll('.lang-option').forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.setLanguage(opt.dataset.lang);
+                dropdown.classList.remove('active');
+                btn.querySelector('.arrow').textContent = '▼';
+            });
+        });
+    }
+
+    setLanguage(lang) {
+        if (!this.translations[lang]) {
+            console.warn('Language not found:', lang);
+            return;
+        }
+        this.currentLang = lang;
+        localStorage.setItem('alura-lang', lang);
+        this.apply(lang);
+        this.renderSelector();
+    }
+
+    t(key) {
+        return this.getNestedTranslation(this.currentLang, key) || key;
+    }
+
+    getNestedTranslation(lang, key) {
+        const keys = key.split('.');
+        let obj = (this.translations || {})[lang] || {};
+        for (const k of keys) {
+            if (obj == null) return null;
+            obj = obj[k];
+        }
+        return obj || null;
+    }
+
+    apply(lang) {
+        if (!this.translations[lang]) return;
+        this.currentLang = lang;
+        localStorage.setItem('alura-lang', lang);
+
+        // ── Dirección RTL ──────────────────────────────────────
+        const isRTL = this.rtl.includes(lang);
+        document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', lang);
+        document.body.style.direction = isRTL ? 'rtl' : 'ltr';
+        console.log(isRTL ? '↩️ RTL mode enabled' : '↔️ LTR mode enabled');
+
+        // ── Traducir todos los elementos con data-translate ────
+        const elements = document.querySelectorAll('[data-translate]');
+        console.log(`📋 Found ${elements.length} elements to translate`);
+        let translated = 0;
+        elements.forEach(el => {
+            const key = el.getAttribute('data-translate');
+            const text = this.getNestedTranslation(lang, key);
+            if (text) {
+                el.textContent = text;
+                translated++;
+            }
+        });
+        console.log(`✅ Translated ${translated} elements`);
+
+        // ── KPI labels dinámicos ───────────────────────────────
+        const t = this.translations[lang] || {};
+        const kpis = t.kpis || {};
+        const safeSet = (id, val) => { const el = document.getElementById(id); if(el && val) el.textContent = val; };
+        // Los valores numéricos no se tocan, solo labels
+    }
+}
+
+window.langManager = new LanguageManager();
+
                 ${this.flags[this.current]} ${this.names[this.current]} ▼
             </button>
             <div class="lang-dropdown" id="lang-dropdown">
