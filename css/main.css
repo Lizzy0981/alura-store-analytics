@@ -1010,7 +1010,7 @@ body {
 
 /* ===== HEADER CENTER - TITULO CENTRADO ===== */
 .header-center { flex: 1; text-align: center; }
-.header-center h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, var(--accent-gold), var(--neon-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0; }
+.header-center h1 { font-size: 1.8rem; font-weight: 800; color: var(--accent-gold); margin: 0; text-shadow: 0 0 20px rgba(255,209,71,0.4); }
 .header-center .header-subtitle { color: var(--text-muted); font-size: 0.85rem; margin: 0; }
 /* ===== LANG SELECTOR EN HEADER ===== */
 .lang-selector-header { position: relative; }
