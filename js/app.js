@@ -610,7 +610,7 @@ class AluraStoreAnalytics {
         const container = document.getElementById('aiInsightsContainer');
         container.innerHTML = '';
 
-        results.insights.forEach(insight => {
+        (results.insights || []).forEach(insight => {
             const insightEl = document.createElement('div');
             insightEl.className = 'insight-item';
             insightEl.innerHTML = `
@@ -672,7 +672,7 @@ class AluraStoreAnalytics {
 
     generateAIInsights() {
         const icons = ['🎯', '⚡', '🧠', '📊'];
-        const insightsTexts = this.languageManager.translations[this.languageManager.currentLang].insights || [
+        const insightsTexts = (this.languageManager.translations[this.languageManager.currentLang] || {}).insights || [] || [
             'El sistema de IA está optimizado y listo para analizar datos',
             'Motor cuántico con 256 qubits virtuales activo',
             'Algoritmos de Machine Learning entrenados y calibrados',
