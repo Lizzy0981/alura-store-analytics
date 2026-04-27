@@ -2,7 +2,7 @@
 // SERVICE WORKER - ALURA STORE ANALYTICS PWA
 // ========================================
 
-const CACHE_NAME = 'alura-store-analytics-v1.2.0';
+const CACHE_NAME = 'alura-store-analytics-v2.2.0';
 const STATIC_CACHE = 'alura-static-v1.2.0';
 const DYNAMIC_CACHE = 'alura-dynamic-v1.2.0';
 
