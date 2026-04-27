@@ -711,3 +711,299 @@ body {
   .tab-nav { display: none; }
   .kpis-container { grid-template-columns: repeat(2, 1fr); }
 }
+
+
+/* ══ TAB NAV BAR ════════════════════════════════════════ */
+.tab-nav-bar {
+  display: flex; gap: 4px;
+  padding: 10px 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(10,10,15,0.5);
+  flex-wrap: wrap;
+}
+.header-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ══ DASHBOARD CONTENT ═══════════════════════════════════ */
+.dashboard-content {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ══ REPORTS DROPDOWN EN SIDEBAR ════════════════════════ */
+.nav-item-reports {
+  position: relative;
+}
+
+.reports-dropdown {
+  display: none;
+  position: fixed;
+  left: calc(var(--sidebar-width) + 8px);
+  top: 200px;
+  width: 320px;
+  background: rgba(10,10,20,0.98);
+  border: 1px solid rgba(243,156,18,0.25);
+  border-radius: 16px;
+  padding: 12px;
+  z-index: 9999;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  backdrop-filter: blur(20px);
+  flex-direction: column;
+  gap: 6px;
+}
+.reports-dropdown.open {
+  display: flex;
+}
+
+.reports-dropdown-header {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  padding: 6px 8px 10px;
+  border-bottom: 1px solid rgba(243,156,18,0.15);
+  margin-bottom: 4px;
+}
+
+.report-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: var(--transition-smooth);
+  gap: 8px;
+}
+.report-item:hover {
+  background: rgba(243,156,18,0.08);
+  border-color: rgba(243,156,18,0.2);
+}
+
+.report-item-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+.report-item-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.report-item-info strong {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-light);
+  display: block;
+}
+.report-item-info p {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.report-item-btns {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+.ri-btn {
+  padding: 4px 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.ri-btn.pdf {
+  background: rgba(239,68,68,0.15);
+  color: var(--ruby);
+  border: 1px solid rgba(239,68,68,0.25);
+}
+.ri-btn.pdf:hover {
+  background: rgba(239,68,68,0.3);
+  transform: translateY(-1px);
+}
+.ri-btn.xls {
+  background: rgba(16,185,129,0.15);
+  color: var(--emerald);
+  border: 1px solid rgba(16,185,129,0.25);
+}
+.ri-btn.xls:hover {
+  background: rgba(16,185,129,0.3);
+  transform: translateY(-1px);
+}
+
+/* ══ UPLOAD BUTTONS (Procesar + Limpiar) ════════════════ */
+.upload-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.process-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--royal-purple), var(--deep-blue));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.process-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99,102,241,0.4);
+}
+
+.clear-btn {
+  padding: 10px 20px;
+  background: rgba(239,68,68,0.1);
+  color: var(--ruby);
+  border: 1px solid rgba(239,68,68,0.25);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.clear-btn:hover {
+  background: rgba(239,68,68,0.2);
+  transform: translateY(-2px);
+}
+
+/* ══ FOOTER — COLORES ORIGINALES DORADOS ════════════════ */
+.footer {
+  margin-left: var(--sidebar-width);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border-elegant);
+  padding: 40px 0 20px;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 25px;
+}
+
+.footer-info h3 {
+  color: var(--accent-gold) !important;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.footer-info p {
+  color: var(--text-accent);
+  font-size: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Iconos circulares dorados — exactamente como el original */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, var(--accent-gold), var(--amber));
+  border-radius: 50%;
+  color: var(--dark-bg);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  overflow: hidden;
+  animation: socialBounce 2s ease-in-out infinite;
+  border: none;
+}
+
+.social-icon::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s;
+}
+.social-icon:hover::before { left: 100%; }
+.social-icon:hover {
+  transform: translateY(-10px) scale(1.1);
+  box-shadow: 0 20px 40px rgba(243,156,18,0.5);
+}
+
+/* Delay de animación para cada icono */
+.social-icon:nth-child(1) { animation-delay: 0s; }
+.social-icon:nth-child(2) { animation-delay: 0.2s; }
+.social-icon:nth-child(3) { animation-delay: 0.4s; }
+.social-icon:nth-child(4) { animation-delay: 0.6s; }
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-elegant);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* ══ ANIMATION socialBounce (original conservada) ═══════ */
+@keyframes socialBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ══ KPIs GRID UNIFORME ══════════════════════════════════ */
+.kpis-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+@media (max-width: 1100px) {
+  .kpis-container { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .kpis-container { grid-template-columns: 1fr 1fr; }
+}
+
+/* ══ CHARTS GRID ═════════════════════════════════════════ */
+.charts-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  .charts-container { grid-template-columns: 1fr; }
+}
+
+/* ══ FOOTER RESPONSIVE ═══════════════════════════════════ */
+@media (max-width: 768px) {
+  .footer { margin-left: 0; }
+}
