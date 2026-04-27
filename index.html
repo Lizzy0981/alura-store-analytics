@@ -7,15 +7,11 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0f0f13">
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-
-    <!-- APIs Públicas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-
-    <!-- CSS Files -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/animations.css">
@@ -25,54 +21,137 @@
 <!-- Partículas Cuánticas de Fondo -->
 <div class="quantum-particles" id="quantumParticles"></div>
 
-<!-- ══ LAYOUT PRINCIPAL ══════════════════════════════════════ -->
 <div class="app-layout">
 
-    <!-- ── SIDEBAR IZQUIERDA ─────────────────────────────── -->
+    <!-- ══ SIDEBAR ══════════════════════════════════════════ -->
     <aside class="sidebar">
-        <div class="sidebar-logo">
-            <div class="logo-icon">⚛</div>
-        </div>
+        <div class="sidebar-logo"><div class="logo-icon">⚛</div></div>
+
         <nav class="sidebar-nav">
+            <!-- Overview -->
             <button class="nav-item active" data-section="overview" title="Overview">
                 <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
             </button>
+            <!-- Revenue -->
             <button class="nav-item" data-section="revenue" title="Revenue">
                 <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
             </button>
+            <!-- Growth -->
             <button class="nav-item" data-section="growth" title="Growth">
                 <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
             </button>
+            <!-- Inventory -->
             <button class="nav-item" data-section="inventory" title="Inventory">
                 <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M20 6h-2.18c.07-.44.18-.88.18-1.35C18 2.53 15.5 1 13 1c-1.5 0-3.01.67-4 1.71C7.99 1.67 6.5 1 5 1 2.5 1 0 2.53 0 4.65c0 .47.11.91.18 1.35H0v2h20V6zm-7.5-3c1.16 0 2.5.71 2.5 1.65 0 .34-.12.66-.28.97C14.6 5.25 13.83 5 13 5c-.65 0-1.27.12-1.87.3C11.21 4.98 11 4.65 11 4.33c0-.94 1.34-1.33 1.5-1.33zM5 3c.16 0 1.5.39 1.5 1.33 0 .32-.21.65-.13.97C6.27 5.12 5.65 5 5 5c-.83 0-1.6.25-2.22.62C2.62 5.31 2.5 4.99 2.5 4.65 2.5 3.71 3.84 3 5 3zM0 20v2h20v-2H0zm0-7v2h20v-2H0zm0-4h20v2H0v-2z"/></svg>
             </button>
+            <!-- Reportes — con dropdown -->
+            <div class="nav-item-reports">
+                <button class="nav-item" id="reportsNavBtn" title="Reportes" onclick="document.getElementById('reportsDropdown').classList.toggle('open')">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-3-7H9v-2h6v2zm2 4H9v-2h8v2z"/></svg>
+                </button>
+                <!-- Dropdown de Reportes -->
+                <div class="reports-dropdown" id="reportsDropdown">
+                    <div class="reports-dropdown-header" data-translate="reports_title">📋 Reportes Ejecutivos</div>
+                    <div class="report-item">
+                        <div class="report-item-info">
+                            <span class="report-item-icon">📊</span>
+                            <div>
+                                <strong data-translate="reports.executive_title">Reporte Ejecutivo</strong>
+                                <p data-translate="reports.executive_desc">KPIs y métricas principales</p>
+                            </div>
+                        </div>
+                        <div class="report-item-btns">
+                            <button class="ri-btn pdf" onclick="app.reportGenerator.generateExecutiveReport('pdf')">PDF</button>
+                            <button class="ri-btn xls" onclick="app.reportGenerator.generateExecutiveReport('excel')">XLS</button>
+                        </div>
+                    </div>
+                    <div class="report-item">
+                        <div class="report-item-info">
+                            <span class="report-item-icon">💰</span>
+                            <div>
+                                <strong data-translate="reports.financial_title">Financiero</strong>
+                                <p data-translate="reports.financial_desc">Ingresos y rentabilidad</p>
+                            </div>
+                        </div>
+                        <div class="report-item-btns">
+                            <button class="ri-btn pdf" onclick="app.reportGenerator.generateFinancialReport('pdf')">PDF</button>
+                            <button class="ri-btn xls" onclick="app.reportGenerator.generateFinancialReport('excel')">XLS</button>
+                        </div>
+                    </div>
+                    <div class="report-item">
+                        <div class="report-item-info">
+                            <span class="report-item-icon">🔮</span>
+                            <div>
+                                <strong data-translate="reports.predictive_title">Predictivo</strong>
+                                <p data-translate="reports.predictive_desc">Proyecciones con IA</p>
+                            </div>
+                        </div>
+                        <div class="report-item-btns">
+                            <button class="ri-btn pdf" onclick="app.reportGenerator.generatePredictiveReport('pdf')">PDF</button>
+                            <button class="ri-btn xls" onclick="app.reportGenerator.generatePredictiveReport('excel')">XLS</button>
+                        </div>
+                    </div>
+                    <div class="report-item">
+                        <div class="report-item-info">
+                            <span class="report-item-icon">📈</span>
+                            <div>
+                                <strong data-translate="reports.trends_title">Tendencias</strong>
+                                <p data-translate="reports.trends_desc">Patrones de crecimiento</p>
+                            </div>
+                        </div>
+                        <div class="report-item-btns">
+                            <button class="ri-btn pdf" onclick="app.reportGenerator.generateTrendsReport('pdf')">PDF</button>
+                            <button class="ri-btn xls" onclick="app.reportGenerator.generateTrendsReport('excel')">XLS</button>
+                        </div>
+                    </div>
+                    <div class="report-item">
+                        <div class="report-item-info">
+                            <span class="report-item-icon">🎯</span>
+                            <div>
+                                <strong data-translate="reports.segmentation_title">Segmentación</strong>
+                                <p data-translate="reports.segmentation_desc">Clustering por IA</p>
+                            </div>
+                        </div>
+                        <div class="report-item-btns">
+                            <button class="ri-btn pdf" onclick="app.reportGenerator.generateSegmentationReport('pdf')">PDF</button>
+                            <button class="ri-btn xls" onclick="app.reportGenerator.generateSegmentationReport('excel')">XLS</button>
+                        </div>
+                    </div>
+                    <div class="report-item">
+                        <div class="report-item-info">
+                            <span class="report-item-icon">⚛️</span>
+                            <div>
+                                <strong data-translate="reports.quantum_title">Cuántico</strong>
+                                <p data-translate="reports.quantum_desc">Algoritmos cuánticos</p>
+                            </div>
+                        </div>
+                        <div class="report-item-btns">
+                            <button class="ri-btn pdf" onclick="app.reportGenerator.generateQuantumReport('pdf')">PDF</button>
+                            <button class="ri-btn xls" onclick="app.reportGenerator.generateQuantumReport('excel')">XLS</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Operations -->
             <button class="nav-item" data-section="operations" title="Operations">
                 <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
             </button>
         </nav>
+
         <div class="sidebar-bottom">
-            <!-- Selector de Idiomas -->
             <div id="lang-selector" class="lang-selector-container"></div>
-            <div class="sidebar-avatar">
-                <div class="avatar-circle">LF</div>
-            </div>
+            <div class="sidebar-avatar"><div class="avatar-circle">LF</div></div>
         </div>
     </aside>
 
-    <!-- ── CONTENIDO PRINCIPAL ────────────────────────────── -->
+    <!-- ══ CONTENIDO PRINCIPAL ═══════════════════════════════ -->
     <main class="main-content">
 
-        <!-- ── TOP HEADER ──────────────────────────────────── -->
+        <!-- Top Header -->
         <header class="top-header">
             <div class="header-left">
                 <h1 data-translate="title">Alura Store Analytics</h1>
-                <nav class="tab-nav">
-                    <button class="tab-btn active" data-tab="overview" data-translate="nav.overview">Overview</button>
-                    <button class="tab-btn" data-tab="revenue" data-translate="nav.revenue">Revenue</button>
-                    <button class="tab-btn" data-tab="growth" data-translate="nav.growth">Growth</button>
-                    <button class="tab-btn" data-tab="inventory" data-translate="nav.inventory">Inventory</button>
-                    <button class="tab-btn" data-tab="operations" data-translate="nav.operations">Operations</button>
-                </nav>
+                <p class="header-subtitle" data-translate="subtitle">Quantum AI Business Intelligence Dashboard</p>
             </div>
             <div class="header-right">
                 <div class="ai-status-pill">
@@ -85,233 +164,160 @@
             </div>
         </header>
 
-        <!-- ── DASHBOARD GRID ──────────────────────────────── -->
-        <div class="dashboard-grid">
+        <!-- Tab Nav -->
+        <nav class="tab-nav-bar">
+            <button class="tab-btn active" data-tab="overview" data-translate="nav.overview">Overview</button>
+            <button class="tab-btn" data-tab="revenue" data-translate="nav.revenue">Revenue</button>
+            <button class="tab-btn" data-tab="growth" data-translate="nav.growth">Growth</button>
+            <button class="tab-btn" data-tab="inventory" data-translate="nav.inventory">Inventory</button>
+            <button class="tab-btn" data-tab="operations" data-translate="nav.operations">Operations</button>
+        </nav>
 
-            <!-- ── COLUMNA CENTRAL ─────────────────────────── -->
-            <div class="center-column">
+        <div class="dashboard-content">
+            <!-- Gamificación -->
+            <section class="gamification-panel">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🎯</div>
+                    <div class="achievement-title" data-translate="achievements.data_master">Data Master</div>
+                    <div class="achievement-progress"><div class="progress-bar" style="width:85%"></div></div>
+                    <div class="achievement-xp">2,850 XP</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">⚡</div>
+                    <div class="achievement-title" data-translate="achievements.speed_analyzer">Speed Analyzer</div>
+                    <div class="achievement-progress"><div class="progress-bar" style="width:92%"></div></div>
+                    <div class="achievement-xp">3,420 XP</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🧠</div>
+                    <div class="achievement-title" data-translate="achievements.ai_explorer">AI Explorer</div>
+                    <div class="achievement-progress"><div class="progress-bar" style="width:78%"></div></div>
+                    <div class="achievement-xp">2,150 XP</div>
+                </div>
+            </section>
 
-                <!-- Gamificación -->
-                <section class="gamification-panel">
-                    <div class="achievement-card">
-                        <div class="achievement-icon">🎯</div>
-                        <div class="achievement-title" data-translate="achievements.data_master">Data Master</div>
-                        <div class="achievement-progress"><div class="progress-bar" style="width:85%"></div></div>
-                        <div class="achievement-xp">2,850 XP</div>
+            <!-- KPIs Dashboard -->
+            <section class="kpis-container">
+                <div class="kpi-card">
+                    <div class="kpi-icon">💰</div>
+                    <div class="kpi-content">
+                        <h3 data-translate="kpis.total_revenue">Ingresos Totales</h3>
+                        <div class="kpi-value" id="totalRevenue">$0</div>
+                        <div class="kpi-trend positive">↑ +15.3%</div>
                     </div>
-                    <div class="achievement-card">
-                        <div class="achievement-icon">⚡</div>
-                        <div class="achievement-title" data-translate="achievements.speed_analyzer">Speed Analyzer</div>
-                        <div class="achievement-progress"><div class="progress-bar" style="width:92%"></div></div>
-                        <div class="achievement-xp">3,420 XP</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">🏪</div>
+                    <div class="kpi-content">
+                        <h3 data-translate="kpis.active_stores">Tiendas Activas</h3>
+                        <div class="kpi-value" id="activeStores">0</div>
+                        <div class="kpi-trend positive">↑ +3</div>
                     </div>
-                    <div class="achievement-card">
-                        <div class="achievement-icon">🧠</div>
-                        <div class="achievement-title" data-translate="achievements.ai_explorer">AI Explorer</div>
-                        <div class="achievement-progress"><div class="progress-bar" style="width:78%"></div></div>
-                        <div class="achievement-xp">2,150 XP</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">🫰</div>
+                    <div class="kpi-content">
+                        <h3 data-translate="kpis.avg_ticket">Ticket Promedio</h3>
+                        <div class="kpi-value" id="avgTicket">$0</div>
+                        <div class="kpi-trend negative">↓ -2.1%</div>
                     </div>
-                </section>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">⭐</div>
+                    <div class="kpi-content">
+                        <h3 data-translate="kpis.top_category">Categoría Top</h3>
+                        <div class="kpi-value" id="topCategory">-</div>
+                        <div class="kpi-trend positive">↑ Líder</div>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">📈</div>
+                    <div class="kpi-content">
+                        <h3 data-translate="kpis.ai_growth">Crecimiento IA</h3>
+                        <div class="kpi-value" id="aiGrowth">+0%</div>
+                        <div class="kpi-trend ai">🤖 Cuántico</div>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">⚛️</div>
+                    <div class="kpi-content">
+                        <h3 data-translate="kpis.quantum_score">Score Cuántico</h3>
+                        <div class="kpi-value" id="quantumScore">0</div>
+                        <div class="kpi-trend quantum">⚡ Óptimo</div>
+                    </div>
+                </div>
+            </section>
 
-                <!-- KPIs Row -->
-                <section class="kpis-container">
-                    <div class="kpi-card accent-green">
-                        <div class="kpi-icon">💰</div>
-                        <div class="kpi-content">
-                            <h3 data-translate="kpis.total_revenue">Ingresos Totales</h3>
-                            <div class="kpi-value" id="totalRevenue">$0</div>
-                            <div class="kpi-trend positive">↑ +15.3%</div>
-                        </div>
+            <!-- Área de Carga de Datos -->
+            <section class="data-upload-area">
+                <div class="upload-container" id="uploadContainer">
+                    <div class="upload-icon">📊</div>
+                    <h3 data-translate="upload.drag_drop">Arrastra tu archivo CSV aquí</h3>
+                    <p data-translate="upload.click_select">O haz clic para seleccionar archivo</p>
+                    <input type="file" id="csvFileInput" accept=".csv" style="display:none">
+                    <div class="upload-actions">
+                        <button class="upload-btn" onclick="document.getElementById('csvFileInput').click()" data-translate="upload.select_file">Seleccionar Archivo</button>
+                        <button class="process-btn" id="processDataBtn" data-translate="upload.process_btn">⚙️ Procesar Datos</button>
+                        <button class="clear-btn" id="clearDataBtn" onclick="if(window.app){app.storeData=[];app.analyzeData();}" data-translate="upload.clear_btn">🗑️ Limpiar Datos</button>
                     </div>
-                    <div class="kpi-card">
-                        <div class="kpi-icon">🏪</div>
-                        <div class="kpi-content">
-                            <h3 data-translate="kpis.active_stores">Tiendas Activas</h3>
-                            <div class="kpi-value" id="activeStores">0</div>
-                            <div class="kpi-trend positive">↑ +3</div>
-                        </div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-icon">🫰</div>
-                        <div class="kpi-content">
-                            <h3 data-translate="kpis.avg_ticket">Ticket Promedio</h3>
-                            <div class="kpi-value" id="avgTicket">$0</div>
-                            <div class="kpi-trend negative">↓ -2.1%</div>
-                        </div>
-                    </div>
-                    <div class="kpi-card accent-dark">
-                        <div class="kpi-icon">⭐</div>
-                        <div class="kpi-content">
-                            <h3 data-translate="kpis.avg_rating">Rating Promedio</h3>
-                            <div class="kpi-value" id="avgRating">0.0</div>
-                            <div class="kpi-trend positive">↑ Top</div>
-                        </div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-icon">⭐</div>
-                        <div class="kpi-content">
-                            <h3 data-translate="kpis.top_category">Categoría Top</h3>
-                            <div class="kpi-value" id="topCategory">-</div>
-                            <div class="kpi-trend positive">↑ Líder</div>
-                        </div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-icon">📈</div>
-                        <div class="kpi-content">
-                            <h3 data-translate="kpis.ai_growth">Crecimiento IA</h3>
-                            <div class="kpi-value" id="aiGrowth">+0%</div>
-                            <div class="kpi-trend ai">🤖 Cuántico</div>
-                        </div>
-                    </div>
-                    <div class="kpi-card accent-green">
-                        <div class="kpi-icon">⚛️</div>
-                        <div class="kpi-content">
-                            <h3 data-translate="kpis.quantum_score">Score Cuántico</h3>
-                            <div class="kpi-value" id="quantumScore">0</div>
-                            <div class="kpi-trend quantum">⚡ Óptimo</div>
-                        </div>
-                    </div>
-                </section>
-                <!-- Área de Carga de Datos -->
-                <section class="data-upload-area">
-                    <div class="upload-container" id="uploadContainer">
-                        <div class="upload-icon">📊</div>
-                        <h3 data-translate="upload.drag_drop">Arrastra tu archivo CSV aquí</h3>
-                        <p data-translate="upload.click_select">O haz clic para seleccionar archivo</p>
-                        <input type="file" id="csvFileInput" accept=".csv" style="display:none">
-                        <button class="upload-btn" onclick="document.getElementById('csvFileInput').click()" data-translate="upload.select_file">
-                            Seleccionar Archivo
-                        </button>
-                    </div>
-                    <div class="generate-data-container">
-                        <button class="generate-btn" id="generateDataBtn" data-translate="upload.generate_sample">
-                            ⚡ Generar Datos de Ejemplo
-                        </button>
-                    </div>
-                </section>
+                </div>
+                <div class="generate-data-container">
+                    <button class="generate-btn" id="generateDataBtn" data-translate="upload.generate_sample">⚡ Generar Datos de Ejemplo</button>
+                </div>
+            </section>
 
-                <!-- Revenue Insight Chart (grande) -->
-                <section class="revenue-insight-card">
-                    <div class="insight-card-header">
-                        <div>
-                            <div class="insight-label">↗</div>
-                            <h3 data-translate="charts.revenue_insight">Revenue Insight</h3>
-                            <p class="insight-subtitle" data-translate="charts.live_performance">Live performance · últimos 7 días</p>
-                        </div>
-                    </div>
+            <!-- Gráficos -->
+            <section class="charts-container">
+                <div class="chart-card">
+                    <h3 data-translate="charts.revenue_by_store">📊 Ingresos por Tienda</h3>
                     <canvas id="revenueChart"></canvas>
-                </section>
-
-                <!-- Gráficos Grid -->
-                <section class="charts-container">
-                    <div class="chart-card">
-                        <h3 data-translate="charts.category_distribution">🎯 Distribución por Categoría</h3>
-                        <canvas id="categoryChart"></canvas>
-                    </div>
-                    <div class="chart-card">
-                        <h3 data-translate="charts.temporal_trend">📈 Tendencia Temporal</h3>
-                        <canvas id="trendChart"></canvas>
-                    </div>
-                    <div class="chart-card">
-                        <h3 data-translate="charts.profitability_matrix">🔥 Matriz de Rentabilidad</h3>
-                        <canvas id="profitabilityChart"></canvas>
-                    </div>
-                </section>
-
-                <!-- AI Insights -->
-                <section class="ai-insights">
-                    <h3 data-translate="ai_insights">🧠 Insights de Inteligencia Artificial</h3>
-                    <div class="insights-container" id="aiInsightsContainer"></div>
-                </section>
-
-                <!-- Tabla Inteligente -->
-                <section class="intelligent-table">
-                    <h3 data-translate="intelligent_ranking">🏆 Ranking Inteligente de Tiendas</h3>
-                    <div class="table-container">
-                        <table id="storesTable">
-                            <thead>
-                                <tr>
-                                    <th data-translate="table.ranking">RANKING</th>
-                                    <th data-translate="table.store">TIENDA</th>
-                                    <th data-translate="table.category">CATEGORÍA</th>
-                                    <th data-translate="table.revenue">INGRESOS</th>
-                                    <th data-translate="table.ai_score">SCORE IA</th>
-                                    <th data-translate="table.quantum_score">SCORE CUÁNTICO</th>
-                                    <th data-translate="table.status">ESTADO</th>
-                                </tr>
-                            </thead>
-                            <tbody id="storesTableBody"></tbody>
-                        </table>
-                    </div>
-                </section>
-
-            </div><!-- /center-column -->
-
-            <!-- ── PANEL DERECHO ───────────────────────────── -->
-            <aside class="right-panel">
-
-                <!-- Agent Confidence -->
-                <div class="right-card accent-dark-card">
-                    <div class="right-card-header">
-                        <span class="card-label" data-translate="panel.agent_confidence">AGENT CONFIDENCE</span>
-                        <span class="live-badge">Live</span>
-                    </div>
-                    <div class="big-metric" id="quantumScore2">84%</div>
-                    <p class="metric-desc" data-translate="panel.high_confidence">High confidence</p>
-                    <p class="metric-sub" data-translate="panel.monitoring">Monitoring revenue velocity and conversion stability</p>
                 </div>
-
-                <!-- Reportes Rápidos -->
-                <div class="right-card">
-                    <div class="right-card-header">
-                        <span class="card-label" data-translate="reports_title">REPORTES</span>
-                    </div>
-                    <div class="quick-links">
-                        <button class="quick-link-item" onclick="app.reportGenerator.generateExecutiveReport('pdf')">
-                            <span class="ql-icon">📄</span>
-                            <div><strong data-translate="reports.executive_title">Reporte Ejecutivo</strong><p data-translate="reports.executive_desc">PDF 7 páginas</p></div>
-                        </button>
-                        <button class="quick-link-item" onclick="app.reportGenerator.generateExecutiveReport('excel')">
-                            <span class="ql-icon">📊</span>
-                            <div><strong data-translate="reports.excel_button">Excel</strong><p data-translate="reports.financial_desc">Multi-hoja análisis</p></div>
-                        </button>
-                        <button class="quick-link-item" onclick="app.reportGenerator.generateFinancialReport('pdf')">
-                            <span class="ql-icon">💰</span>
-                            <div><strong data-translate="reports.financial_title">Financiero</strong><p data-translate="reports.financial_desc">Ingresos & ROI</p></div>
-                        </button>
-                        <button class="quick-link-item" onclick="app.reportGenerator.generateTrendsReport('pdf')">
-                            <span class="ql-icon">📈</span>
-                            <div><strong data-translate="reports.trends_title">Tendencias</strong><p data-translate="reports.trends_desc">Temporal & patrones</p></div>
-                        </button>
-                        <button class="quick-link-item" onclick="app.reportGenerator.generateSegmentationReport('pdf')">
-                            <span class="ql-icon">🎯</span>
-                            <div><strong data-translate="reports.segmentation_title">Segmentación</strong><p data-translate="reports.segmentation_desc">Clusters IA</p></div>
-                        </button>
-                        <button class="quick-link-item" onclick="app.reportGenerator.generateQuantumReport('pdf')">
-                            <span class="ql-icon">⚛️</span>
-                            <div><strong data-translate="reports.quantum_title">Cuántico</strong><p data-translate="reports.quantum_desc">Algoritmos avanzados</p></div>
-                        </button>
-                    </div>
+                <div class="chart-card">
+                    <h3 data-translate="charts.category_distribution">🎯 Distribución por Categoría</h3>
+                    <canvas id="categoryChart"></canvas>
                 </div>
-
-                <!-- Next Best Action -->
-                <div class="right-card">
-                    <div class="right-card-header">
-                        <span class="card-label" data-translate="panel.next_action">NEXT BEST ACTION</span>
-                    </div>
-                    <p class="action-text" data-translate="panel.action_desc">Sube tus datos de ventas para identificar qué empresa renta menos y tomar decisiones inteligentes.</p>
-                    <span class="action-badge">+IA Analysis</span>
+                <div class="chart-card">
+                    <h3 data-translate="charts.temporal_trend">📈 Tendencia Temporal</h3>
+                    <canvas id="trendChart"></canvas>
                 </div>
+                <div class="chart-card">
+                    <h3 data-translate="charts.profitability_matrix">🔥 Matriz de Rentabilidad</h3>
+                    <canvas id="profitabilityChart"></canvas>
+                </div>
+            </section>
 
-            </aside><!-- /right-panel -->
+            <!-- AI Insights -->
+            <section class="ai-insights">
+                <h3 data-translate="ai_insights">🧠 Insights de Inteligencia Artificial</h3>
+                <div class="insights-container" id="aiInsightsContainer"></div>
+            </section>
 
-        </div><!-- /dashboard-grid -->
+            <!-- Tabla Inteligente -->
+            <section class="intelligent-table">
+                <h3 data-translate="intelligent_ranking">🏆 Ranking Inteligente de Tiendas</h3>
+                <div class="table-container">
+                    <table id="storesTable">
+                        <thead>
+                            <tr>
+                                <th data-translate="table.ranking">RANKING</th>
+                                <th data-translate="table.store">TIENDA</th>
+                                <th data-translate="table.category">CATEGORÍA</th>
+                                <th data-translate="table.revenue">INGRESOS</th>
+                                <th data-translate="table.ai_score">SCORE IA</th>
+                                <th data-translate="table.quantum_score">SCORE CUÁNTICO</th>
+                                <th data-translate="table.status">ESTADO</th>
+                            </tr>
+                        </thead>
+                        <tbody id="storesTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
 
+        </div><!-- /dashboard-content -->
     </main><!-- /main-content -->
-
 </div><!-- /app-layout -->
 
-<!-- Footer con Iconos de Redes Sociales Centrados -->
+<!-- Footer — colores originales conservados -->
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-info">
@@ -349,22 +355,40 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     if (window.langManager) { window.langManager.init(); }
-    // Tab navigation
+    // Tabs
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
         });
     });
-    // Sidebar nav
-    document.querySelectorAll('.nav-item').forEach(btn => {
+    // Sidebar nav items
+    document.querySelectorAll('.nav-item[data-section]').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
         });
     });
+    // Cerrar dropdown reportes al click fuera
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-item-reports')) {
+            const dd = document.getElementById('reportsDropdown');
+            if (dd) dd.classList.remove('open');
+        }
+    });
+    // Botón Procesar Datos
+    const processBtn = document.getElementById('processDataBtn');
+    if (processBtn) {
+        processBtn.addEventListener('click', () => {
+            if (window.app && app.storeData.length > 0) {
+                app.analyzeData();
+            } else {
+                const fi = document.getElementById('csvFileInput');
+                if (fi) fi.click();
+            }
+        });
+    }
 });
 </script>
-
 </body>
 </html>
