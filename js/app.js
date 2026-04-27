@@ -196,7 +196,7 @@ document.addEventListener('click', e => {
 class LanguageManager {
     constructor() {
         this.currentLang = localStorage.getItem('alura-lang') || 'es';
-        (this.translations || {}) = {};
+        this.translations = {};
         this.langConfig = {
             'es': { name: 'Español', flag: '🇪🇸' },
             'en': { name: 'English', flag: '🇺🇸' },
@@ -228,12 +228,12 @@ class LanguageManager {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             
-            (this.translations || {}) = await response.json();
+            this.translations = await response.json();
             console.log('✅ Translations loaded:', Object.keys((this.translations || {})));
         } catch (error) {
             console.error('❌ Error loading translations:', error);
             // Fallback translations
-            (this.translations || {}) = {
+            this.translations = {
                 es: {
                     title: "Alura Store Analytics",
                     subtitle: "Quantum AI Business Intelligence Dashboard",
