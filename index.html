@@ -77,7 +77,8 @@
                     </div>
                 </div>
             </div>
-        </header>
+        <div id="lang-selector" class="lang-selector-container"></div>
+</header>
 
         <!-- Panel de Gamificación -->
         <section class="gamification-panel">
@@ -356,5 +357,15 @@
     <script src="js/api-connector.js"></script>
     <script src="js/report-generator.js"></script>
     <script src="js/app.js"></script>
+
+<script>
+  // Inicializar LanguageManager al cargar
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.langManager) {
+      window.langManager.init();
+    }
+  });
+</script>
+
 </body>
 </html>
