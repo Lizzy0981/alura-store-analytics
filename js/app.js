@@ -1,3 +1,194 @@
+
+// ═══════════════════════════════════════════════════════════════
+// LANGUAGE MANAGER — 11 idiomas · Traducción 100% de la página
+// ═══════════════════════════════════════════════════════════════
+class LanguageManager {
+    constructor() {
+        this.current = localStorage.getItem('alura_lang') ||
+                       navigator.language.slice(0,2) || 'es';
+        this.supported = ['es','en','pt','fr','ru','tr','ar','he','zh','ja','ko'];
+        this.rtl       = ['ar','he'];
+        this.flags     = {
+            es:'🇪🇸', en:'🇺🇸', pt:'🇧🇷', fr:'🇫🇷',
+            ru:'🇷🇺', tr:'🇹🇷', ar:'🇸🇦', he:'🇮🇱',
+            zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷'
+        };
+        this.names = {
+            es:'Español', en:'English', pt:'Português', fr:'Français',
+            ru:'Русский', tr:'Türkçe', ar:'العربية', he:'עברית',
+            zh:'中文', ja:'日本語', ko:'한국어'
+        };
+        if (!this.supported.includes(this.current)) this.current = 'es';
+        this.t = {};
+    }
+
+    async init() {
+        try {
+            const r = await fetch('assets/data/translations.json');
+            const all = await r.json();
+            this.t = all;
+            this.renderSelector();
+            this.apply(this.current);
+        } catch(e) {
+            console.warn('Translations not loaded:', e);
+        }
+    }
+
+    apply(lang) {
+        if (!this.t[lang]) return;
+        this.current = lang;
+        localStorage.setItem('alura_lang', lang);
+
+        // ── Dirección RTL/LTR ──────────────────────────────────
+        const isRTL = this.rtl.includes(lang);
+        document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', lang);
+        document.body.style.direction = isRTL ? 'rtl' : 'ltr';
+
+        const T = this.t[lang];
+
+        // ── Traducir todos los elementos con data-i18n ─────────
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (T[key] !== undefined) el.textContent = T[key];
+        });
+
+        // ── Traducir placeholders ──────────────────────────────
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (T[key] !== undefined) el.setAttribute('placeholder', T[key]);
+        });
+
+        // ── Traducir títulos (title attribute) ─────────────────
+        document.querySelectorAll('[data-i18n-title]').forEach(el => {
+            const key = el.getAttribute('data-i18n-title');
+            if (T[key] !== undefined) el.setAttribute('title', T[key]);
+        });
+
+        // ── Elementos específicos por ID ───────────────────────
+        const map = {
+            'app-title':           T.app_title,
+            'app-subtitle':        T.app_subtitle,
+            'system-active-text':  T.system_active,
+            'kpi-total-revenue':   T.total_revenue,
+            'kpi-active-stores':   T.active_stores,
+            'kpi-avg-ticket':      T.avg_ticket,
+            'kpi-top-category':    T.top_category,
+            'kpi-ai-growth':       T.ai_growth,
+            'kpi-quantum-score':   T.quantum_score,
+            'upload-title':        T.upload_title,
+            'upload-subtitle':     T.upload_subtitle,
+            'btn-select-file':     T.select_file,
+            'btn-generate-sample': T.generate_sample,
+            'btn-process-data':    T.process_data,
+            'btn-clear-data':      T.clear_data,
+            'chart-title-revenue': T.chart_revenue,
+            'chart-title-cat':     T.chart_category,
+            'chart-title-trend':   T.chart_trend,
+            'chart-title-matrix':  T.chart_matrix,
+            'reports-title':       T.reports_title,
+            'ai-insights-title':   T.ai_insights,
+            'store-ranking-title': T.store_ranking,
+            'footer-tagline':      T.footer_text,
+            'footer-copyright':    T.footer_copy,
+            'badge-data-master':   T.data_master,
+            'badge-speed':         T.speed_analyzer,
+            'badge-ai-explorer':   T.ai_explorer,
+        };
+        Object.entries(map).forEach(([id, val]) => {
+            const el = document.getElementById(id);
+            if (el && val) el.textContent = val;
+        });
+
+        // ── Tabla ranking ──────────────────────────────────────
+        const thMap = {
+            'th-rank':    T.col_rank,
+            'th-store':   T.col_store,
+            'th-cat':     T.col_category,
+            'th-revenue': T.col_revenue,
+            'th-ai':      T.col_ai_score,
+            'th-quantum': T.col_quantum,
+            'th-status':  T.col_status,
+        };
+        Object.entries(thMap).forEach(([id, val]) => {
+            const el = document.getElementById(id);
+            if (el && val) el.textContent = val;
+        });
+
+        // ── Reportes ───────────────────────────────────────────
+        const reports = [
+            ['report-executive', T.report_executive, T.report_executive_desc],
+            ['report-financial',  T.report_financial,  T.report_financial_desc],
+            ['report-predictive', T.report_predictive, T.report_predictive_desc],
+            ['report-trends',     T.report_trends,     T.report_trends_desc],
+            ['report-segment',    T.report_segmentation, T.report_segmentation_desc],
+            ['report-quantum',    T.report_quantum,    T.report_quantum_desc],
+        ];
+        reports.forEach(([id, title, desc]) => {
+            const titleEl = document.getElementById(id + '-title');
+            const descEl  = document.getElementById(id + '-desc');
+            if (titleEl && title) titleEl.textContent = title;
+            if (descEl  && desc)  descEl.textContent  = desc;
+        });
+
+        // ── Botones PDF/Excel en reportes ──────────────────────
+        document.querySelectorAll('.btn-pdf').forEach(el  => el.textContent = T.btn_pdf);
+        document.querySelectorAll('.btn-excel').forEach(el => el.textContent = T.btn_excel);
+
+        // ── Actualizar selector visual ─────────────────────────
+        const current = document.getElementById('current-lang');
+        if (current) {
+            current.textContent = `${this.flags[lang]} ${this.names[lang]}`;
+        }
+        document.querySelectorAll('.lang-option').forEach(el => {
+            el.classList.toggle('active', el.dataset.lang === lang);
+        });
+
+        // ── Disparar evento para otros módulos ─────────────────
+        window.dispatchEvent(new CustomEvent('languageChanged', {detail: {lang, T}}));
+    }
+
+    renderSelector() {
+        const container = document.getElementById('lang-selector');
+        if (!container) return;
+        container.innerHTML = `
+            <button class="lang-btn" id="current-lang" onclick="window.langManager.toggleDropdown()">
+                ${this.flags[this.current]} ${this.names[this.current]} ▼
+            </button>
+            <div class="lang-dropdown" id="lang-dropdown">
+                ${this.supported.map(l => `
+                    <div class="lang-option ${l===this.current?'active':''}"
+                         data-lang="${l}"
+                         onclick="window.langManager.apply('${l}')">
+                        ${this.flags[l]} ${this.names[l]}
+                    </div>
+                `).join('')}
+            </div>`;
+    }
+
+    toggleDropdown() {
+        const dd = document.getElementById('lang-dropdown');
+        if (dd) dd.classList.toggle('open');
+    }
+
+    get(key) {
+        return (this.t[this.current] || {})[key] || key;
+    }
+}
+
+// ── Inicialización global ──────────────────────────────────────
+window.langManager = new LanguageManager();
+document.addEventListener('DOMContentLoaded', () => window.langManager.init());
+
+// ── Cerrar dropdown al hacer clic fuera ───────────────────────
+document.addEventListener('click', e => {
+    if (!e.target.closest('#lang-selector')) {
+        const dd = document.getElementById('lang-dropdown');
+        if (dd) dd.classList.remove('open');
+    }
+});
+
+
 // ========================================
 // SISTEMA DE IDIOMAS / LANGUAGE MANAGER
 // ========================================
