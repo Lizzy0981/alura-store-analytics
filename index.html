@@ -158,9 +158,7 @@
                     <div class="quantum-indicator"></div>
                     <span data-translate="quantum_status">Sistema Cuántico Activo</span>
                 </div>
-                <button class="launch-btn" onclick="document.getElementById('uploadContainer').scrollIntoView({behavior:'smooth'})">
-                    + <span data-translate="upload.launch_btn">Subir Datos</span>
-                </button>
+                <div id="lang-selector-header" class="lang-selector-header"></div>
             </div>
         </header>
 
@@ -294,7 +292,7 @@
 
             <!-- Tabla Inteligente -->
             <section class="intelligent-table">
-                <h3 data-translate="intelligent_ranking">🏆 Ranking Inteligente de Tiendas</h3>
+                <h3 data-translate="intelligent_ranking">🏆 Ranking Inteligente de Tiendas</h3><div class="ranking-alert" id="rankingAlert"><span class="alert-icon">⚠️</span><span class="alert-text" id="rankingAlertText">Carga datos para ver qué tienda genera pérdidas</span></div>
                 <div class="table-container">
                     <table id="storesTable">
                         <thead>
@@ -314,7 +312,7 @@
             </section>
 
         </div><!-- /dashboard-content -->
-    </main><!-- /main-content -->
+    <section class="demo-section" id="demoSection"><div class="demo-header"><h2 class="demo-title">🧪 Demo Interactivo</h2><p class="demo-subtitle">Prueba con los 11 archivos de tiendas reales de Alura Store</p></div><div class="demo-grid"><div class="demo-card" onclick="loadDemoFile('tienda_boutique_glamour_vzla.csv')"><div class="demo-flag">🇻🇪</div><div class="demo-store-name">Boutique Glamour</div><div class="demo-country">Venezuela</div><div class="demo-category">Moda</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_tech_hub_colombia.csv')"><div class="demo-flag">🇨🇴</div><div class="demo-store-name">Tech Hub</div><div class="demo-country">Colombia</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_esquina_tech_miami_eeuu.csv')"><div class="demo-flag">🇺🇸</div><div class="demo-store-name">Esquina Tech</div><div class="demo-country">Miami, USA</div><div class="demo-category">Electrónicos</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_hogar_mas_rep_dom.csv')"><div class="demo-flag">🇩🇴</div><div class="demo-store-name">Hogar & Más</div><div class="demo-country">Rep. Dominicana</div><div class="demo-category">Hogar</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_digital_zone_esp.csv')"><div class="demo-flag">🇪🇸</div><div class="demo-store-name">Digital Zone</div><div class="demo-country">España</div><div class="demo-category">Digital</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_fashion_forward_paris.csv')"><div class="demo-flag">🇫🇷</div><div class="demo-store-name">Fashion Forward</div><div class="demo-country">París, Francia</div><div class="demo-category">Alta Moda</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_moscow_tech_rus.csv')"><div class="demo-flag">🇷🇺</div><div class="demo-store-name">Moscow Tech</div><div class="demo-country">Rusia</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_istanbul_bazaar_tur.csv')"><div class="demo-flag">🇹🇷</div><div class="demo-store-name">Istanbul Bazaar</div><div class="demo-country">Turquía</div><div class="demo-category">Bazar & Textil</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_dubai_luxury_uae.csv')"><div class="demo-flag">🇦🇪</div><div class="demo-store-name">Dubai Luxury</div><div class="demo-country">Dubai, EAU</div><div class="demo-category">Lujo</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_china_ecommerce.csv')"><div class="demo-flag">🇨🇳</div><div class="demo-store-name">China E-Commerce</div><div class="demo-country">China</div><div class="demo-category">E-Commerce</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_japan_store.csv')"><div class="demo-flag">🇯🇵</div><div class="demo-store-name">Japan Store</div><div class="demo-country">Japón</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div></div><p class="demo-note">💡 Haz clic en una tienda para cargar sus datos y explorar los análisis de BI</p></section></main><!-- /main-content -->
 </div><!-- /app-layout -->
 
 <!-- Footer — colores originales conservados -->
