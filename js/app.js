@@ -663,3 +663,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// TAB NAVIGATION SCROLL - smooth scrolling for tab buttons
+(function() {
+    function initTabNav() {
+        var TAB_MAP = {
+            "overview": "#kpiSection",
+            "revenue": "#uploadContainer",
+            "growth": "#aiInsightsContainer",
+            "inventory": "#storesTableBody",
+            "operations": "#reportsSection",
+            "demo": "#demoSection"
+        };
+        var tabBtns = document.querySelectorAll(".tab-btn[data-tab]");
+        tabBtns.forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                var tabName = this.getAttribute("data-tab");
+                tabBtns.forEach(function(b) { b.classList.remove("active"); });
+                this.classList.add("active");
+                var selector = TAB_MAP[tabName];
+                if (selector) {
+                    var section = document.querySelector(selector);
+                    if (!section && tabName === "demo") section = document.getElementById("demoSection");
+                    if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            });
+        });
+    }
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initTabNav);
+    } else {
+        initTabNav();
+    }
+})();
