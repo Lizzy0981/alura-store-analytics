@@ -610,74 +610,55 @@ function loadDemoFile(filename) {
 }
 
 
-// ── DEMO FILE LOADER ─────────────────────────────────────────
+// DEMO FILE LOADER - Clean version
 window.loadDemoFile = function(filename) {
-    const BASE = 'https://raw.githubusercontent.com/Lizzy0981/alura-store-analytics/main/Datos%20Alura%20Store/';
-    const url = BASE + encodeURIComponent(filename);
-    
-    // Show loading state
-    const btn = event && event.target ? event.target.closest('.demo-card') : null;
-    if (btn) {
-        const origText = btn.querySelector('.demo-btn').innerHTML;
-        btn.querySelector('.demo-btn').innerHTML = '<span>⏳ Cargando...</span>';
-        btn.querySelector('.demo-btn').disabled = true;
-    }
+    var BASE = 'https://raw.githubusercontent.com/Lizzy0981/alura-store-analytics/main/Datos%20Alura%20Store/';
+    var url = BASE + encodeURIComponent(filename);
     
     fetch(url)
-        .then(r => {
+        .then(function(r) {
             if (!r.ok) throw new Error('HTTP ' + r.status);
             return r.text();
         })
-        .then(csvText => {
-            // Navigate to overview tab and load data
-            const overviewBtn = document.querySelector('.tab-btn[data-tab="overview"]');
+        .then(function(csvText) {
+            // Navigate to overview tab
+            var overviewBtn = document.querySelector('.tab-btn[data-tab="overview"]');
             if (overviewBtn) overviewBtn.click();
             
-            // Try to use the app's existing CSV processor
+            // Load via app processor
             if (window.app && window.app.processCSV) {
                 window.app.processCSV(csvText, filename);
-            } else if (window.AluraStoreApp) {
-                const appInstance = window.AluraStoreApp || Object.values(window).find(v => v && v.processCSV);
-                if (appInstance && appInstance.processCSV) appInstance.processCSV(csvText, filename);
             } else {
-                // Fallback: dispatch custom event
-                document.dispatchEvent(new CustomEvent('demo:fileLoaded', { detail: { csv: csvText, filename } }));
-                console.log('Demo file loaded: ' + filename + ' (' + csvText.length + ' chars)');
-                alert('✅ Archivo cargado: ' + filename + '
-Ve a la pestaña Upload para ver los datos.');
+                document.dispatchEvent(new CustomEvent('demo:fileLoaded', { detail: { csv: csvText, filename: filename } }));
+                alert('Archivo cargado: ' + filename + '. Ve a Upload para ver los datos.');
             }
         })
-        .catch(err => {
+        .catch(function(err) {
             console.error('Error loading demo:', err);
-            alert('❌ Error al cargar el archivo demo: ' + err.message);
+            alert('Error al cargar el archivo demo: ' + err.message);
         });
 };
 
-// ── TAB SWITCHING for Demo section ───────────────────────────
+// TAB SWITCHING for Demo section
 document.addEventListener('DOMContentLoaded', function() {
     // Handle demo tab in horizontal nav
-    document.querySelectorAll('.tab-btn[data-tab="demo"]').forEach(btn => {
+    document.querySelectorAll('.tab-btn[data-tab="demo"]').forEach(function(btn) {
         btn.addEventListener('click', function() {
-            // Hide all sections
-            document.querySelectorAll('.tab-section').forEach(s => s.style.display = 'none');
-            // Remove active from all tab buttons
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            // Show demo section
-            const demoSection = document.getElementById('demo-section');
+            document.querySelectorAll('.tab-section').forEach(function(s) { s.style.display = 'none'; });
+            document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+            var demoSection = document.getElementById('demo-section');
             if (demoSection) demoSection.style.display = '';
-            this.classList.add('active');
-            // Sync sidebar
-            document.querySelectorAll('.nav-item[data-tab="demo"]').forEach(s => {
-                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-                s.classList.add('active');
-            });
+            btn.classList.add('active');
+            document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
+            var demoNav = document.querySelector('.nav-item[data-section="demo"]');
+            if (demoNav) demoNav.classList.add('active');
         });
     });
     
     // Handle demo in sidebar
-    document.querySelectorAll('.nav-item[data-section="demo"]').forEach(btn => {
+    document.querySelectorAll('.nav-item[data-section="demo"]').forEach(function(btn) {
         btn.addEventListener('click', function() {
-            const demoTabBtn = document.querySelector('.tab-btn[data-tab="demo"]');
+            var demoTabBtn = document.querySelector('.tab-btn[data-tab="demo"]');
             if (demoTabBtn) demoTabBtn.click();
         });
     });
