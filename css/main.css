@@ -1018,7 +1018,16 @@ body {
 .lang-selector-header .lang-current:hover { background: rgba(255,209,71,0.1); border-color: var(--accent-gold); }
 .lang-selector-header .lang-dropdown { position: absolute; right: 0; top: 100%; margin-top: 4px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 6px; z-index: 1000; min-width: 160px; overflow-y: auto; display: none; }
 .lang-selector-header .lang-dropdown.open { display: block; }
-.lang-selector-header .lang-dropdown.active { display: flex !important; flex-direction: column; gap: 2px; }
+.lang-selector-header .lang-dropdown.active {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    height: fit-content !important;
+    min-height: 0 !important;
+}
+.lang-selector-header .lang-dropdown .lang-option {
+    flex-shrink: 0 !important;
+}
 .lang-selector-header .lang-option { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 6px; cursor: pointer; transition: background 0.2s; font-size: 0.85rem; }
 .lang-selector-header .lang-option:hover { background: rgba(255,209,71,0.1); }
 .lang-selector-header .lang-option.active { background: rgba(255,209,71,0.15); color: var(--accent-gold); }
