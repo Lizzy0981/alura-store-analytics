@@ -148,7 +148,7 @@
 
             <!-- Área de Carga de Datos -->
             <section class="data-upload-area">
-                <div class="upload-container" id="uploadContainer">
+                <div class="upload-container" id="uploadContainer" data-tab-id="revenue">
                     <div class="upload-icon">📊</div>
                     <h3 data-translate="upload.drag_drop">Arrastra tu archivo CSV aquí</h3>
                     <p data-translate="upload.click_select">O haz clic para seleccionar archivo</p>
@@ -212,126 +212,9 @@
             </section>
 
         </div><!-- /dashboard-content -->
-    <section class="demo-section" id="demoSection"><div class="demo-header"><h2 class="demo-title">🧪 Demo Interactivo</h2><p class="demo-subtitle">Prueba con los 11 archivos de tiendas reales de Alura Store</p></div><div class="demo-grid"><div class="demo-card" onclick="loadDemoFile('tienda_boutique_glamour_vzla.csv')"><div class="demo-flag">🇻🇪</div><div class="demo-store-name">Boutique Glamour</div><div class="demo-country">Venezuela</div><div class="demo-category">Moda</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_tech_hub_colombia.csv')"><div class="demo-flag">🇨🇴</div><div class="demo-store-name">Tech Hub</div><div class="demo-country">Colombia</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_esquina_tech_miami_eeuu.csv')"><div class="demo-flag">🇺🇸</div><div class="demo-store-name">Esquina Tech</div><div class="demo-country">Miami, USA</div><div class="demo-category">Electrónicos</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_hogar_mas_rep_dom.csv')"><div class="demo-flag">🇩🇴</div><div class="demo-store-name">Hogar & Más</div><div class="demo-country">Rep. Dominicana</div><div class="demo-category">Hogar</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_digital_zone_esp.csv')"><div class="demo-flag">🇪🇸</div><div class="demo-store-name">Digital Zone</div><div class="demo-country">España</div><div class="demo-category">Digital</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_fashion_forward_paris.csv')"><div class="demo-flag">🇫🇷</div><div class="demo-store-name">Fashion Forward</div><div class="demo-country">París, Francia</div><div class="demo-category">Alta Moda</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_moscow_tech_rus.csv')"><div class="demo-flag">🇷🇺</div><div class="demo-store-name">Moscow Tech</div><div class="demo-country">Rusia</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_istanbul_bazaar_tur.csv')"><div class="demo-flag">🇹🇷</div><div class="demo-store-name">Istanbul Bazaar</div><div class="demo-country">Turquía</div><div class="demo-category">Bazar & Textil</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_dubai_luxury_uae.csv')"><div class="demo-flag">🇦🇪</div><div class="demo-store-name">Dubai Luxury</div><div class="demo-country">Dubai, EAU</div><div class="demo-category">Lujo</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_china_ecommerce.csv')"><div class="demo-flag">🇨🇳</div><div class="demo-store-name">China E-Commerce</div><div class="demo-country">China</div><div class="demo-category">E-Commerce</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_japan_store.csv')"><div class="demo-flag">🇯🇵</div><div class="demo-store-name">Japan Store</div><div class="demo-country">Japón</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div></div><p class="demo-note">💡 Haz clic en una tienda para cargar sus datos y explorar los análisis de BI</p></section>
+    <section class="demo-section" id="demoSection" data-tab-id="demo"><div class="demo-header"><h2 class="demo-title">🧪 Demo Interactivo</h2><p class="demo-subtitle">Prueba con los 11 archivos de tiendas reales de Alura Store</p></div><div class="demo-grid"><div class="demo-card" onclick="loadDemoFile('tienda_boutique_glamour_vzla.csv')"><div class="demo-flag">🇻🇪</div><div class="demo-store-name">Boutique Glamour</div><div class="demo-country">Venezuela</div><div class="demo-category">Moda</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_tech_hub_colombia.csv')"><div class="demo-flag">🇨🇴</div><div class="demo-store-name">Tech Hub</div><div class="demo-country">Colombia</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_esquina_tech_miami_eeuu.csv')"><div class="demo-flag">🇺🇸</div><div class="demo-store-name">Esquina Tech</div><div class="demo-country">Miami, USA</div><div class="demo-category">Electrónicos</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_hogar_mas_rep_dom.csv')"><div class="demo-flag">🇩🇴</div><div class="demo-store-name">Hogar & Más</div><div class="demo-country">Rep. Dominicana</div><div class="demo-category">Hogar</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_digital_zone_esp.csv')"><div class="demo-flag">🇪🇸</div><div class="demo-store-name">Digital Zone</div><div class="demo-country">España</div><div class="demo-category">Digital</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_fashion_forward_paris.csv')"><div class="demo-flag">🇫🇷</div><div class="demo-store-name">Fashion Forward</div><div class="demo-country">París, Francia</div><div class="demo-category">Alta Moda</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_moscow_tech_rus.csv')"><div class="demo-flag">🇷🇺</div><div class="demo-store-name">Moscow Tech</div><div class="demo-country">Rusia</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_istanbul_bazaar_tur.csv')"><div class="demo-flag">🇹🇷</div><div class="demo-store-name">Istanbul Bazaar</div><div class="demo-country">Turquía</div><div class="demo-category">Bazar & Textil</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_dubai_luxury_uae.csv')"><div class="demo-flag">🇦🇪</div><div class="demo-store-name">Dubai Luxury</div><div class="demo-country">Dubai, EAU</div><div class="demo-category">Lujo</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_china_ecommerce.csv')"><div class="demo-flag">🇨🇳</div><div class="demo-store-name">China E-Commerce</div><div class="demo-country">China</div><div class="demo-category">E-Commerce</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_japan_store.csv')"><div class="demo-flag">🇯🇵</div><div class="demo-store-name">Japan Store</div><div class="demo-country">Japón</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div></div><p class="demo-note">💡 Haz clic en una tienda para cargar sus datos y explorar los análisis de BI</p></section>
         <!-- DEMO SECTION -->
-        <section id="demo-section" class="tab-section" style="display:none;">
-            <div class="demo-header">
-                <h2 class="demo-title">
-                    <svg viewBox="0 0 24 24" width="28" height="28" style="vertical-align:middle;margin-right:8px;">
-                        <path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
-                    </svg>
-                    Centro de Demo
-                </h2>
-                <p class="demo-subtitle">Prueba la calidad de Alura Store Analytics con datos reales de 11 tiendas internacionales (33,000 transacciones, 2024-2025)</p>
-            </div>
-            <div class="demo-grid">
-                <div class="demo-card" onclick="loadDemoFile('tienda_boutique_glamour_venezuela.csv')">
-                    <div class="demo-flag">🇻🇪</div>
-                    <div class="demo-store-name">Boutique Glamour Venezuela</div>
-                    <div class="demo-meta">3,000 registros · Moda · Caracas</div>
-                    <button class="demo-btn">
-                        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
-                        Cargar Demo
-                    </button>
-                </div>
-                <div class="demo-card" onclick="loadDemoFile('tienda_esquina_tech_miami_eeuu.csv')">
-                    <div class="demo-flag">🇺🇸</div>
-                    <div class="demo-store-name">Esquina Tech Miami EEUU</div>
-                    <div class="demo-meta">3,000 registros · Tecnología · Miami</div>
-                    <button class="demo-btn">
-                        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
-                        Cargar Demo
-                    </button>
-                </div>
-                <div class="demo-card" onclick="loadDemoFile('tienda_hogar_&_mas_rep_dom.csv')">
-                    <div class="demo-flag">🇩🇴</div>
-                    <div class="demo-store-name">Hogar & Más Rep. Dom.</div>
-                    <div class="demo-meta">3,000 registros · Hogar · Santo Domingo</div>
-                    <button class="demo-btn">
-                        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
-                        Cargar Demo
-                    </button>
-                </div>
-                <div class="demo-card" onclick="loadDemoFile('tienda_mundo_deportivo_mexico.csv')">
-                    <div class="demo-flag">🇲🇽</div>
-                    <div class="demo-store-name">Mundo Deportivo México</div>
-                    <div class="demo-meta">3,000 registros · Deportes · Ciudad de México</div>
-                    <button class="demo-btn">
-                        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
-                        Cargar Demo
-                    </button>
-                </div>
-                <div class="demo-card" onclick="loadDemoFile('tienda_casa_brasil.csv')">
-                    <div class="demo-flag">🇧🇷</div>
-                    <div class="demo-store-name">Casa Brasil</div>
-                    <div class="demo-meta">3,000 registros · Hogar · São Paulo</div>
-                    <button class="demo-btn">
-                        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
-                        Cargar Demo
-                    </button>
-                </div>
-                <div class="demo-card" onclick="loadDemoFile('tienda_maison_france.csv')">
-                    <div class="demo-flag">🇫🇷</div>
-                    <div class="demo-store-name">Maison France</div>
-                    <div class="demo-meta">3,000 registros · Lujo · París</div>
-                    <button class="demo-btn">
-                        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
-                        Cargar Demo
-                    </button>
-                </div>
-                <div class="demo-card" onclick="loadDemoFile('tienda_tech_hub_espana.csv')">
-                    <div class="demo-flag">🇪🇸</div>
-                    <div class="demo-store-name">Tech Hub España</div>
-                    <div class="demo-meta">3,000 registros · Tecnología · Madrid</div>
-                    <button class="demo-btn">
-                        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
-                        Cargar Demo
-                    </button>
-                </div>
-                <div class="demo-card" onclick="loadDemoFile('tienda_moda_italia.csv')">
-                    <div class="demo-flag">🇮🇹</div>
-                    <div class="demo-store-name">Moda Italia</div>
-                    <div class="demo-meta">3,000 registros · Moda · Milán</div>
-                    <button class="demo-btn">
-                        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
-                        Cargar Demo
-                    </button>
-                </div>
-                <div class="demo-card" onclick="loadDemoFile('tienda_elektra_argentina.csv')">
-                    <div class="demo-flag">🇦🇷</div>
-                    <div class="demo-store-name">Elektra Argentina</div>
-                    <div class="demo-meta">3,000 registros · Electrónica · Buenos Aires</div>
-                    <button class="demo-btn">
-                        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
-                        Cargar Demo
-                    </button>
-                </div>
-                <div class="demo-card" onclick="loadDemoFile('tienda_global_colombia.csv')">
-                    <div class="demo-flag">🇨🇴</div>
-                    <div class="demo-store-name">Global Colombia</div>
-                    <div class="demo-meta">3,000 registros · General · Bogotá</div>
-                    <button class="demo-btn">
-                        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
-                        Cargar Demo
-                    </button>
-                </div>
-                <div class="demo-card" onclick="loadDemoFile('tienda_central_peru.csv')">
-                    <div class="demo-flag">🇵🇪</div>
-                    <div class="demo-store-name">Central Perú</div>
-                    <div class="demo-meta">3,000 registros · General · Lima</div>
-                    <button class="demo-btn">
-                        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
-                        Cargar Demo
-                    </button>
-                </div>
-            </div>
-            <div class="demo-info">
-                <div class="demo-info-icon">💡</div>
-                <div>
-                    <strong>¿Cómo funciona?</strong> Haz clic en "Cargar Demo" para cargar los datos de una tienda real. El sistema analizará automáticamente 3,000 transacciones y mostrará KPIs, rankings, insights de IA y reportes completos.
-                </div>
-            </div>
-        </section>
+        
         </main><!-- /main-content -->
 </div><!-- /app-layout -->
 
