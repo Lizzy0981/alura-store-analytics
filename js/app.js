@@ -698,6 +698,8 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 
 
+
+
 // =============================================================
 // SPA NAVIGATION SYSTEM
 // Each tab click shows ONLY its section, hides all others
@@ -725,7 +727,7 @@ document.addEventListener('DOMContentLoaded', function() {
     '#demoSection'
   ];
 
-  // Also map sidebar icons
+  // Sidebar icon index mapping
   const SIDEBAR_MAP = {
     'overview':   0,
     'revenue':    1,
@@ -735,7 +737,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'demo':       4
   };
 
-  function showSection(tabKey) {
+  function showSection(tabKey, scroll) {
     // Hide all sections
     ALL_SECTIONS.forEach(sel => {
       const el = document.querySelector(sel);
@@ -746,11 +748,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const toShow = SPA_MAP[tabKey] || SPA_MAP['overview'];
     toShow.forEach(sel => {
       const el = document.querySelector(sel);
-      if (el) {
-        el.classList.add('spa-active');
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      if (el) el.classList.add('spa-active');
     });
+
+    // Scroll to top of content only if user clicked (not on init)
+    if (scroll) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
     // Update active tab button
     document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -765,7 +769,7 @@ document.addEventListener('DOMContentLoaded', function() {
       sidebarIcons[sidebarIdx].classList.add('active');
     }
 
-    // Save current tab to sessionStorage
+    // Save current tab
     try { sessionStorage.setItem('spa_tab', tabKey); } catch(e) {}
   }
 
@@ -775,27 +779,25 @@ document.addEventListener('DOMContentLoaded', function() {
       btn.addEventListener('click', function(e) {
         e.preventDefault();
         const tabKey = this.getAttribute('data-tab');
-        if (tabKey) showSection(tabKey);
+        if (tabKey) showSection(tabKey, true);
       });
     });
 
-    // Sidebar icon clicks - use index to determine section
+    // Sidebar icon clicks
     document.querySelectorAll('.sidebar-icon').forEach((icon, idx) => {
       icon.addEventListener('click', function(e) {
         e.preventDefault();
-        // Find tab key by sidebar index
         const tabKey = Object.keys(SIDEBAR_MAP).find(k => SIDEBAR_MAP[k] === idx);
-        if (tabKey) showSection(tabKey);
+        if (tabKey) showSection(tabKey, true);
       });
     });
   }
 
-  // Init: show Inicio section on load
+  // Init: show default section WITHOUT scrolling
   function onReady() {
-    // Try to restore last tab or default to overview
     let lastTab = 'overview';
     try { lastTab = sessionStorage.getItem('spa_tab') || 'overview'; } catch(e) {}
-    showSection(lastTab);
+    showSection(lastTab, false);  // false = no scroll on init
     initListeners();
     console.log('SPA Navigation initialized - tab:', lastTab);
   }
@@ -803,6 +805,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', onReady);
   } else {
-    onReady();
+    // Small delay to ensure all elements are rendered
+    setTimeout(onReady, 50);
   }
 })();
