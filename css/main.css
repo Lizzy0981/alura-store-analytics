@@ -1210,3 +1210,52 @@ body {
     background: #15803d;
     transform: scale(1.05);
 }
+
+
+/* ============================================================
+   SPA NAVIGATION - Show/hide sections
+   ============================================================ */
+
+/* All main sections hidden by default */
+.gamification-panel,
+.kpis-container,
+.data-upload-area,
+.charts-container,
+.ai-insights,
+.intelligent-table,
+.reports-executive-section,
+.demo-section {
+    display: none !important;
+}
+
+/* Active section is visible */
+.gamification-panel.spa-active,
+.kpis-container.spa-active,
+.data-upload-area.spa-active,
+.charts-container.spa-active,
+.ai-insights.spa-active,
+.intelligent-table.spa-active,
+.reports-executive-section.spa-active,
+.demo-section.spa-active {
+    display: block !important;
+    animation: spaFadeIn 0.35s ease;
+}
+
+@keyframes spaFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Active tab button style */
+.tab-btn.active {
+    background: var(--accent-primary, #6c63ff) !important;
+    color: #fff !important;
+    border-radius: 20px !important;
+    padding: 6px 18px !important;
+}
+
+/* Sidebar active icon */
+.sidebar-icon.active {
+    background: rgba(108,99,255,0.25) !important;
+    color: var(--accent-primary, #6c63ff) !important;
+}
