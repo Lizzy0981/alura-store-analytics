@@ -696,3 +696,113 @@ document.addEventListener('DOMContentLoaded', function() {
         initTabNav();
     }
 })();
+
+
+// =============================================================
+// SPA NAVIGATION SYSTEM
+// Each tab click shows ONLY its section, hides all others
+// =============================================================
+(function initSPA() {
+  // Map: data-tab value -> array of CSS selectors to show
+  const SPA_MAP = {
+    'overview':   ['.gamification-panel', '.kpis-container'],
+    'revenue':    ['.data-upload-area'],
+    'growth':     ['.charts-container', '.ai-insights'],
+    'inventory':  ['.intelligent-table'],
+    'operations': ['#reportsSection'],
+    'demo':       ['#demoSection']
+  };
+
+  // All sections that SPA controls
+  const ALL_SECTIONS = [
+    '.gamification-panel',
+    '.kpis-container',
+    '.data-upload-area',
+    '.charts-container',
+    '.ai-insights',
+    '.intelligent-table',
+    '#reportsSection',
+    '#demoSection'
+  ];
+
+  // Also map sidebar icons
+  const SIDEBAR_MAP = {
+    'overview':   0,
+    'revenue':    1,
+    'growth':     2,
+    'inventory':  3,
+    'operations': 5,
+    'demo':       4
+  };
+
+  function showSection(tabKey) {
+    // Hide all sections
+    ALL_SECTIONS.forEach(sel => {
+      const el = document.querySelector(sel);
+      if (el) el.classList.remove('spa-active');
+    });
+
+    // Show only the sections for this tab
+    const toShow = SPA_MAP[tabKey] || SPA_MAP['overview'];
+    toShow.forEach(sel => {
+      const el = document.querySelector(sel);
+      if (el) {
+        el.classList.add('spa-active');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+
+    // Update active tab button
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-tab') === tabKey);
+    });
+
+    // Update sidebar icons
+    const sidebarIcons = document.querySelectorAll('.sidebar-icon');
+    sidebarIcons.forEach(icon => icon.classList.remove('active'));
+    const sidebarIdx = SIDEBAR_MAP[tabKey];
+    if (sidebarIdx !== undefined && sidebarIcons[sidebarIdx]) {
+      sidebarIcons[sidebarIdx].classList.add('active');
+    }
+
+    // Save current tab to sessionStorage
+    try { sessionStorage.setItem('spa_tab', tabKey); } catch(e) {}
+  }
+
+  function initListeners() {
+    // Tab nav bar buttons
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const tabKey = this.getAttribute('data-tab');
+        if (tabKey) showSection(tabKey);
+      });
+    });
+
+    // Sidebar icon clicks - use index to determine section
+    document.querySelectorAll('.sidebar-icon').forEach((icon, idx) => {
+      icon.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Find tab key by sidebar index
+        const tabKey = Object.keys(SIDEBAR_MAP).find(k => SIDEBAR_MAP[k] === idx);
+        if (tabKey) showSection(tabKey);
+      });
+    });
+  }
+
+  // Init: show Inicio section on load
+  function onReady() {
+    // Try to restore last tab or default to overview
+    let lastTab = 'overview';
+    try { lastTab = sessionStorage.getItem('spa_tab') || 'overview'; } catch(e) {}
+    showSection(lastTab);
+    initListeners();
+    console.log('SPA Navigation initialized - tab:', lastTab);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onReady);
+  } else {
+    onReady();
+  }
+})();
