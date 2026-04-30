@@ -212,7 +212,98 @@
             </section>
 
         </div><!-- /dashboard-content -->
-    <section class="demo-section" id="demoSection" data-tab-id="demo"><div class="demo-header"><h2 class="demo-title">🧪 Demo Interactivo</h2><p class="demo-subtitle">Prueba con los 11 archivos de tiendas reales de Alura Store</p></div><div class="demo-grid"><div class="demo-card" onclick="loadDemoFile('tienda_boutique_glamour_vzla.csv')"><div class="demo-flag">🇻🇪</div><div class="demo-store-name">Boutique Glamour</div><div class="demo-country">Venezuela</div><div class="demo-category">Moda</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_tech_hub_colombia.csv')"><div class="demo-flag">🇨🇴</div><div class="demo-store-name">Tech Hub</div><div class="demo-country">Colombia</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_esquina_tech_miami_eeuu.csv')"><div class="demo-flag">🇺🇸</div><div class="demo-store-name">Esquina Tech</div><div class="demo-country">Miami, USA</div><div class="demo-category">Electrónicos</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_hogar_mas_rep_dom.csv')"><div class="demo-flag">🇩🇴</div><div class="demo-store-name">Hogar & Más</div><div class="demo-country">Rep. Dominicana</div><div class="demo-category">Hogar</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_digital_zone_esp.csv')"><div class="demo-flag">🇪🇸</div><div class="demo-store-name">Digital Zone</div><div class="demo-country">España</div><div class="demo-category">Digital</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_fashion_forward_paris.csv')"><div class="demo-flag">🇫🇷</div><div class="demo-store-name">Fashion Forward</div><div class="demo-country">París, Francia</div><div class="demo-category">Alta Moda</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_moscow_tech_rus.csv')"><div class="demo-flag">🇷🇺</div><div class="demo-store-name">Moscow Tech</div><div class="demo-country">Rusia</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_istanbul_bazaar_tur.csv')"><div class="demo-flag">🇹🇷</div><div class="demo-store-name">Istanbul Bazaar</div><div class="demo-country">Turquía</div><div class="demo-category">Bazar & Textil</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_dubai_luxury_uae.csv')"><div class="demo-flag">🇦🇪</div><div class="demo-store-name">Dubai Luxury</div><div class="demo-country">Dubai, EAU</div><div class="demo-category">Lujo</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_china_ecommerce.csv')"><div class="demo-flag">🇨🇳</div><div class="demo-store-name">China E-Commerce</div><div class="demo-country">China</div><div class="demo-category">E-Commerce</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_japan_store.csv')"><div class="demo-flag">🇯🇵</div><div class="demo-store-name">Japan Store</div><div class="demo-country">Japón</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div></div><p class="demo-note">💡 Haz clic en una tienda para cargar sus datos y explorar los análisis de BI</p></section>
+    
+        <!-- CENTRO DE REPORTES EJECUTIVOS -->
+        <section class="reports-executive-section" id="reportsSection" data-tab-id="operations">
+            <div class="reports-header">
+                <h2 class="reports-title">
+                    <span class="reports-icon">&#128203;</span>
+                    <span data-translate="reports.title">CENTRO DE REPORTES EJECUTIVOS</span>
+                </h2>
+            </div>
+            <div class="reports-grid">
+                <div class="report-item">
+                    <div class="report-icon-box" style="background: linear-gradient(135deg, #6366f1, #818cf8);">
+                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    </div>
+                    <div class="report-info">
+                        <h3 data-translate="reports.executive">Reporte Ejecutivo</h3>
+                        <p data-translate="reports.executive_desc">KPIs y m&#233;tricas principales</p>
+                    </div>
+                    <div class="report-actions">
+                        <button class="report-btn pdf-btn" onclick="generateExecutiveReport('pdf')" title="Descargar PDF">PDF</button>
+                        <button class="report-btn xls-btn" onclick="generateExecutiveReport('xls')" title="Descargar Excel">XLS</button>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <div class="report-icon-box" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
+                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                    </div>
+                    <div class="report-info">
+                        <h3 data-translate="reports.financial">Financiero</h3>
+                        <p data-translate="reports.financial_desc">Ingresos y rentabilidad</p>
+                    </div>
+                    <div class="report-actions">
+                        <button class="report-btn pdf-btn" onclick="generateFinancialReport('pdf')">PDF</button>
+                        <button class="report-btn xls-btn" onclick="generateFinancialReport('xls')">XLS</button>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <div class="report-icon-box" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">
+                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <div class="report-info">
+                        <h3 data-translate="reports.predictive">Predictivo</h3>
+                        <p data-translate="reports.predictive_desc">Proyecciones con IA</p>
+                    </div>
+                    <div class="report-actions">
+                        <button class="report-btn pdf-btn" onclick="generatePredictiveReport('pdf')">PDF</button>
+                        <button class="report-btn xls-btn" onclick="generatePredictiveReport('xls')">XLS</button>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <div class="report-icon-box" style="background: linear-gradient(135deg, #10b981, #34d399);">
+                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                    </div>
+                    <div class="report-info">
+                        <h3 data-translate="reports.trends">Tendencias</h3>
+                        <p data-translate="reports.trends_desc">Patrones de crecimiento</p>
+                    </div>
+                    <div class="report-actions">
+                        <button class="report-btn pdf-btn" onclick="generateTrendsReport('pdf')">PDF</button>
+                        <button class="report-btn xls-btn" onclick="generateTrendsReport('xls')">XLS</button>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <div class="report-icon-box" style="background: linear-gradient(135deg, #ef4444, #f87171);">
+                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                    </div>
+                    <div class="report-info">
+                        <h3 data-translate="reports.segmentation">Segmentaci&#243;n</h3>
+                        <p data-translate="reports.segmentation_desc">Clustering por IA</p>
+                    </div>
+                    <div class="report-actions">
+                        <button class="report-btn pdf-btn" onclick="generateSegmentationReport('pdf')">PDF</button>
+                        <button class="report-btn xls-btn" onclick="generateSegmentationReport('xls')">XLS</button>
+                    </div>
+                </div>
+                <div class="report-item">
+                    <div class="report-icon-box" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
+                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 6c1.4 0 2.8 1.1 2.8 2.5V11c.6.3 1.2.9 1.2 1.5v3c0 .8-.7 1.5-1.5 1.5h-5c-.8 0-1.5-.7-1.5-1.5v-3c0-.6.6-1.2 1.2-1.5V9.5C9.2 8.1 10.6 7 12 7z"/></svg>
+                    </div>
+                    <div class="report-info">
+                        <h3 data-translate="reports.quantum">Cu&#225;ntico</h3>
+                        <p data-translate="reports.quantum_desc">Algoritmos cu&#225;nticos</p>
+                    </div>
+                    <div class="report-actions">
+                        <button class="report-btn pdf-btn" onclick="generateQuantumReport('pdf')">PDF</button>
+                        <button class="report-btn xls-btn" onclick="generateQuantumReport('xls')">XLS</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section" id="demoSection" data-tab-id="demo"><div class="demo-header"><h2 class="demo-title">🧪 Demo Interactivo</h2><p class="demo-subtitle">Prueba con los 11 archivos de tiendas reales de Alura Store</p></div><div class="demo-grid"><div class="demo-card" onclick="loadDemoFile('tienda_boutique_glamour_vzla.csv')"><div class="demo-flag">🇻🇪</div><div class="demo-store-name">Boutique Glamour</div><div class="demo-country">Venezuela</div><div class="demo-category">Moda</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_tech_hub_colombia.csv')"><div class="demo-flag">🇨🇴</div><div class="demo-store-name">Tech Hub</div><div class="demo-country">Colombia</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_esquina_tech_miami_eeuu.csv')"><div class="demo-flag">🇺🇸</div><div class="demo-store-name">Esquina Tech</div><div class="demo-country">Miami, USA</div><div class="demo-category">Electrónicos</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_hogar_mas_rep_dom.csv')"><div class="demo-flag">🇩🇴</div><div class="demo-store-name">Hogar & Más</div><div class="demo-country">Rep. Dominicana</div><div class="demo-category">Hogar</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_digital_zone_esp.csv')"><div class="demo-flag">🇪🇸</div><div class="demo-store-name">Digital Zone</div><div class="demo-country">España</div><div class="demo-category">Digital</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_fashion_forward_paris.csv')"><div class="demo-flag">🇫🇷</div><div class="demo-store-name">Fashion Forward</div><div class="demo-country">París, Francia</div><div class="demo-category">Alta Moda</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_moscow_tech_rus.csv')"><div class="demo-flag">🇷🇺</div><div class="demo-store-name">Moscow Tech</div><div class="demo-country">Rusia</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_istanbul_bazaar_tur.csv')"><div class="demo-flag">🇹🇷</div><div class="demo-store-name">Istanbul Bazaar</div><div class="demo-country">Turquía</div><div class="demo-category">Bazar & Textil</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_dubai_luxury_uae.csv')"><div class="demo-flag">🇦🇪</div><div class="demo-store-name">Dubai Luxury</div><div class="demo-country">Dubai, EAU</div><div class="demo-category">Lujo</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_china_ecommerce.csv')"><div class="demo-flag">🇨🇳</div><div class="demo-store-name">China E-Commerce</div><div class="demo-country">China</div><div class="demo-category">E-Commerce</div><button class="demo-btn">▶ Demo</button></div><div class="demo-card" onclick="loadDemoFile('tienda_japan_store.csv')"><div class="demo-flag">🇯🇵</div><div class="demo-store-name">Japan Store</div><div class="demo-country">Japón</div><div class="demo-category">Tecnología</div><button class="demo-btn">▶ Demo</button></div></div><p class="demo-note">💡 Haz clic en una tienda para cargar sus datos y explorar los análisis de BI</p></section>
         <!-- DEMO SECTION -->
         
         </main><!-- /main-content -->
