@@ -700,6 +700,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
 // =============================================================
 // SPA NAVIGATION SYSTEM
 // Each tab click shows ONLY its section, hides all others
@@ -715,7 +717,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'demo':       ['#demoSection']
   };
 
-  // All sections that SPA controls
+  // All sections SPA controls
   const ALL_SECTIONS = [
     '.gamification-panel',
     '.kpis-container',
@@ -726,16 +728,6 @@ document.addEventListener('DOMContentLoaded', function() {
     '#reportsSection',
     '#demoSection'
   ];
-
-  // Sidebar icon index mapping
-  const SIDEBAR_MAP = {
-    'overview':   0,
-    'revenue':    1,
-    'growth':     2,
-    'inventory':  3,
-    'operations': 5,
-    'demo':       4
-  };
 
   function showSection(tabKey, scroll) {
     // Hide all sections
@@ -751,30 +743,27 @@ document.addEventListener('DOMContentLoaded', function() {
       if (el) el.classList.add('spa-active');
     });
 
-    // Scroll to top of content only if user clicked (not on init)
+    // Scroll to top only when user clicks (not on init)
     if (scroll) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Update active tab button
+    // Update active state on HORIZONTAL tab buttons (.tab-btn)
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-tab') === tabKey);
     });
 
-    // Update sidebar icons
-    const sidebarIcons = document.querySelectorAll('.sidebar-icon');
-    sidebarIcons.forEach(icon => icon.classList.remove('active'));
-    const sidebarIdx = SIDEBAR_MAP[tabKey];
-    if (sidebarIdx !== undefined && sidebarIcons[sidebarIdx]) {
-      sidebarIcons[sidebarIdx].classList.add('active');
-    }
+    // Update active state on SIDEBAR buttons (.nav-item with data-tab)
+    document.querySelectorAll('.sidebar .nav-item[data-tab]').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-tab') === tabKey);
+    });
 
     // Save current tab
     try { sessionStorage.setItem('spa_tab', tabKey); } catch(e) {}
   }
 
   function initListeners() {
-    // Tab nav bar buttons
+    // Horizontal tab nav buttons (.tab-btn)
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', function(e) {
         e.preventDefault();
@@ -783,11 +772,11 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    // Sidebar icon clicks
-    document.querySelectorAll('.sidebar-icon').forEach((icon, idx) => {
-      icon.addEventListener('click', function(e) {
+    // SIDEBAR nav buttons (.nav-item with data-tab) - use data-tab directly
+    document.querySelectorAll('.sidebar .nav-item[data-tab]').forEach(btn => {
+      btn.addEventListener('click', function(e) {
         e.preventDefault();
-        const tabKey = Object.keys(SIDEBAR_MAP).find(k => SIDEBAR_MAP[k] === idx);
+        const tabKey = this.getAttribute('data-tab');
         if (tabKey) showSection(tabKey, true);
       });
     });
@@ -797,7 +786,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function onReady() {
     let lastTab = 'overview';
     try { lastTab = sessionStorage.getItem('spa_tab') || 'overview'; } catch(e) {}
-    showSection(lastTab, false);  // false = no scroll on init
+    showSection(lastTab, false);
     initListeners();
     console.log('SPA Navigation initialized - tab:', lastTab);
   }
@@ -805,7 +794,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', onReady);
   } else {
-    // Small delay to ensure all elements are rendered
     setTimeout(onReady, 50);
   }
 })();
